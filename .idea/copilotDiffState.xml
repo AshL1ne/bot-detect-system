@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/README.md">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/README.md" />
+              <option name="updatedContent" value="# Bot Detect System&#10;&#10;This repository contains a Spring Boot backend and a Vue frontend skeleton for a malicious user detection and visual analysis system.&#10;&#10;## Structure&#10;- bds: Spring Boot backend&#10;- bds-web: Vue 3 frontend&#10;&#10;## Quick start&#10;&#10;Backend (Spring Boot):&#10;- Configure database settings in bds/src/main/resources/application.properties&#10;- Run the application&#10;&#10;Frontend (Vue):&#10;- Install dependencies and run the dev server&#10;&#10;## Notes&#10;- Auth uses username + password (hash + salt) with JWT planned.&#10;- CORS and MyBatis-Plus pagination are configured.&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/package.json">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/package.json" />
+              <option name="originalContent" value="{&#10;  &quot;name&quot;: &quot;bds-web&quot;,&#10;  &quot;version&quot;: &quot;0.1.0&quot;,&#10;  &quot;private&quot;: true,&#10;  &quot;scripts&quot;: {&#10;    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,&#10;    &quot;build&quot;: &quot;vue-cli-service build&quot;,&#10;    &quot;lint&quot;: &quot;vue-cli-service lint&quot;&#10;  },&#10;  &quot;dependencies&quot;: {&#10;    &quot;core-js&quot;: &quot;^3.8.3&quot;,&#10;    &quot;vue&quot;: &quot;^3.2.13&quot;&#10;  },&#10;  &quot;devDependencies&quot;: {&#10;    &quot;@babel/core&quot;: &quot;^7.12.16&quot;,&#10;    &quot;@babel/eslint-parser&quot;: &quot;^7.12.16&quot;,&#10;    &quot;@vue/cli-plugin-babel&quot;: &quot;~5.0.0&quot;,&#10;    &quot;@vue/cli-plugin-eslint&quot;: &quot;~5.0.0&quot;,&#10;    &quot;@vue/cli-service&quot;: &quot;~5.0.0&quot;,&#10;    &quot;eslint&quot;: &quot;^7.32.0&quot;,&#10;    &quot;eslint-plugin-vue&quot;: &quot;^8.0.3&quot;&#10;  },&#10;  &quot;eslintConfig&quot;: {&#10;    &quot;root&quot;: true,&#10;    &quot;env&quot;: {&#10;      &quot;node&quot;: true&#10;    },&#10;    &quot;extends&quot;: [&#10;      &quot;plugin:vue/vue3-essential&quot;,&#10;      &quot;eslint:recommended&quot;&#10;    ],&#10;    &quot;parserOptions&quot;: {&#10;      &quot;parser&quot;: &quot;@babel/eslint-parser&quot;&#10;    },&#10;    &quot;rules&quot;: {}&#10;  },&#10;  &quot;browserslist&quot;: [&#10;    &quot;&gt; 1%&quot;,&#10;    &quot;last 2 versions&quot;,&#10;    &quot;not dead&quot;,&#10;    &quot;not ie 11&quot;&#10;  ]&#10;}&#10;" />
+              <option name="updatedContent" value="{&#10;  &quot;name&quot;: &quot;bds-web&quot;,&#10;  &quot;version&quot;: &quot;0.1.0&quot;,&#10;  &quot;private&quot;: true,&#10;  &quot;scripts&quot;: {&#10;    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,&#10;    &quot;build&quot;: &quot;vue-cli-service build&quot;,&#10;    &quot;lint&quot;: &quot;vue-cli-service lint&quot;&#10;  },&#10;  &quot;dependencies&quot;: {&#10;    &quot;@antv/g6&quot;: &quot;^5.0.18&quot;,&#10;    &quot;axios&quot;: &quot;^1.7.2&quot;,&#10;    &quot;core-js&quot;: &quot;^3.8.3&quot;,&#10;    &quot;echarts&quot;: &quot;^5.5.0&quot;,&#10;    &quot;element-plus&quot;: &quot;^2.7.6&quot;,&#10;    &quot;vue&quot;: &quot;^3.2.13&quot;,&#10;    &quot;vue-router&quot;: &quot;^4.3.2&quot;&#10;  },&#10;  &quot;devDependencies&quot;: {&#10;    &quot;@babel/core&quot;: &quot;^7.12.16&quot;,&#10;    &quot;@babel/eslint-parser&quot;: &quot;^7.12.16&quot;,&#10;    &quot;@vue/cli-plugin-babel&quot;: &quot;~5.0.0&quot;,&#10;    &quot;@vue/cli-plugin-eslint&quot;: &quot;~5.0.0&quot;,&#10;    &quot;@vue/cli-service&quot;: &quot;~5.0.0&quot;,&#10;    &quot;eslint&quot;: &quot;^7.32.0&quot;,&#10;    &quot;eslint-plugin-vue&quot;: &quot;^8.0.3&quot;&#10;  },&#10;  &quot;eslintConfig&quot;: {&#10;    &quot;root&quot;: true,&#10;    &quot;env&quot;: {&#10;      &quot;node&quot;: true&#10;    },&#10;    &quot;extends&quot;: [&#10;      &quot;plugin:vue/vue3-essential&quot;,&#10;      &quot;eslint:recommended&quot;&#10;    ],&#10;    &quot;parserOptions&quot;: {&#10;      &quot;parser&quot;: &quot;@babel/eslint-parser&quot;&#10;    },&#10;    &quot;rules&quot;: {}&#10;  },&#10;  &quot;browserslist&quot;: [&#10;    &quot;&gt; 1%&quot;,&#10;    &quot;last 2 versions&quot;,&#10;    &quot;not dead&quot;,&#10;    &quot;not ie 11&quot;&#10;  ]&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/App.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/App.vue" />
+              <option name="originalContent" value="&lt;template&gt;&#10;  &lt;img alt=&quot;Vue logo&quot; src=&quot;./assets/logo.png&quot;&gt;&#10;  &lt;HelloWorld msg=&quot;Welcome to Your Vue.js App&quot;/&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import HelloWorld from './components/HelloWorld.vue'&#10;&#10;export default {&#10;  name: 'App'&#10;}&#10;  name: 'App',&#10;  components: {&#10;    HelloWorld&#10;  }&#10;&#10;&lt;style&gt;&#10;#app {&#10;  font-family: Avenir, Helvetica, Arial, sans-serif;&#10;  -webkit-font-smoothing: antialiased;&#10;  margin-top: 60px;&#10;  font-weight: 600;&#10;}&#10;&#10;.app-main {&#10;  min-height: calc(100vh - 56px);&#10;}&#10;&lt;/style&gt;&#10;" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;div id=&quot;app&quot;&gt;&#10;    &lt;header class=&quot;app-header&quot;&gt;&#10;      &lt;span class=&quot;title&quot;&gt;BDS&lt;/span&gt;&#10;      &lt;nav class=&quot;nav&quot;&gt;&#10;        &lt;router-link v-if=&quot;isLoggedIn&quot; to=&quot;/users&quot; class=&quot;nav-link&quot;&gt;Users&lt;/router-link&gt;&#10;        &lt;router-link v-if=&quot;isLoggedIn&quot; to=&quot;/me&quot; class=&quot;nav-link&quot;&gt;Me&lt;/router-link&gt;&#10;        &lt;router-link v-if=&quot;canAccessAdmin&quot; to=&quot;/admin/users&quot; class=&quot;nav-link&quot;&gt;Admin&lt;/router-link&gt;&#10;        &lt;router-link v-if=&quot;!isLoggedIn&quot; to=&quot;/login&quot; class=&quot;nav-link&quot;&gt;Login&lt;/router-link&gt;&#10;        &lt;router-link v-if=&quot;!isLoggedIn&quot; to=&quot;/register&quot; class=&quot;nav-link&quot;&gt;Register&lt;/router-link&gt;&#10;        &lt;button v-if=&quot;isLoggedIn&quot; class=&quot;nav-link nav-button&quot; @click=&quot;logout&quot;&gt;Logout&lt;/button&gt;&#10;      &lt;/nav&gt;&#10;    &lt;/header&gt;&#10;    &lt;main class=&quot;app-main&quot;&gt;&#10;      &lt;router-view /&gt;&#10;    &lt;/main&gt;&#10;  &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import { me } from './api/auth'&#10;&#10;export default {&#10;  name: 'App',&#10;  data() {&#10;    return {&#10;      token: localStorage.getItem('token'),&#10;      role: ''&#10;    }&#10;  },&#10;  computed: {&#10;    isLoggedIn() {&#10;      return !!this.token&#10;    },&#10;    canAccessAdmin() {&#10;      return this.isLoggedIn &amp;&amp; this.role === 'ADMIN'&#10;    }&#10;  },&#10;  mounted() {&#10;    window.addEventListener('storage', this.syncToken)&#10;    this.refreshProfile()&#10;  },&#10;  beforeUnmount() {&#10;    window.removeEventListener('storage', this.syncToken)&#10;  },&#10;  methods: {&#10;    syncToken() {&#10;      this.token = localStorage.getItem('token')&#10;      if (this.token) {&#10;        this.refreshProfile()&#10;      } else {&#10;        this.role = ''&#10;      }&#10;    },&#10;    async refreshProfile() {&#10;      if (!this.token) {&#10;        return&#10;      }&#10;      try {&#10;        const response = await me()&#10;        this.role = response.data.data.role || ''&#10;        if (['/login', '/register'].includes(this.$route.path)) {&#10;          this.$router.push('/me')&#10;        }&#10;      } catch (err) {&#10;        this.role = ''&#10;        localStorage.removeItem('token')&#10;      }&#10;    },&#10;    logout() {&#10;      localStorage.removeItem('token')&#10;      this.syncToken()&#10;      this.$router.push('/login')&#10;    }&#10;  }&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style&gt;&#10;#app {&#10;  font-family: Avenir, Helvetica, Arial, sans-serif;&#10;  -webkit-font-smoothing: antialiased;&#10;  -moz-osx-font-smoothing: grayscale;&#10;  color: #2c3e50;&#10;}&#10;&#10;.app-header {&#10;  height: 56px;&#10;  display: flex;&#10;  align-items: center;&#10;  justify-content: space-between;&#10;  padding: 0 24px;&#10;  background: #1f2d3d;&#10;  color: #fff;&#10;}&#10;&#10;.title {&#10;  font-weight: 600;&#10;}&#10;&#10;.nav {&#10;  display: flex;&#10;  gap: 12px;&#10;}&#10;&#10;.nav-link {&#10;  color: #e5e7eb;&#10;  text-decoration: none;&#10;  font-size: 14px;&#10;}&#10;&#10;.nav-link.router-link-active {&#10;  color: #fff;&#10;  font-weight: 600;&#10;}&#10;&#10;.nav-button {&#10;  background: transparent;&#10;  border: none;&#10;  cursor: pointer;&#10;  padding: 0;&#10;}&#10;&#10;.app-main {&#10;  min-height: calc(100vh - 56px);&#10;}&#10;&lt;/style&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/api/admin.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/api/admin.js" />
+              <option name="updatedContent" value="import http from './http'&#10;&#10;export function updateUserLabel(userId, payload) {&#10;  return http.put(`/admin/users/${userId}/label`, payload)&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/api/auth.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/api/auth.js" />
+              <option name="updatedContent" value="import http from './http'&#10;&#10;export function login(payload) {&#10;  return http.post('/auth/login', payload)&#10;}&#10;&#10;export function register(payload) {&#10;  return http.post('/auth/register', payload)&#10;}&#10;&#10;export function me() {&#10;  return http.get('/auth/me')&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/api/http.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/api/http.js" />
+              <option name="updatedContent" value="import axios from 'axios'&#13;&#10;&#13;&#10;const http = axios.create({&#13;&#10;  baseURL: process.env.VUE_APP_API_BASE || 'http://localhost:8090/api',&#13;&#10;  timeout: 15000&#13;&#10;})&#13;&#10;&#13;&#10;http.interceptors.request.use(config =&gt; {&#13;&#10;  const token = localStorage.getItem('token')&#13;&#10;  if (token) {&#13;&#10;    config.headers.Authorization = `Bearer ${token}`&#13;&#10;  }&#13;&#10;  return config&#13;&#10;})&#13;&#10;&#13;&#10;export default http&#13;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/api/users.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/api/users.js" />
+              <option name="updatedContent" value="import http from './http'&#10;&#10;export function searchUsers(payload) {&#10;  return http.post('/users/search', payload)&#10;}&#10;&#10;export function getUserDetail(userId) {&#10;  return http.get(`/users/${userId}`)&#10;}&#10;&#10;export function getUserWordCloud(userId) {&#10;  return http.get(`/users/${userId}/wordcloud`)&#10;}&#10;&#10;export function getUserActiveHours(userId) {&#10;  return http.get(`/users/${userId}/active-hours`)&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/components/ActiveHoursChart.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/components/ActiveHoursChart.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;div class=&quot;widget&quot;&gt;&#10;    &lt;h3&gt;Active Hours&lt;/h3&gt;&#10;    &lt;p&gt;TODO: render activity chart.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;  name: 'ActiveHoursChart'&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.widget {&#10;  padding: 16px;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/components/RelationGraph.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/components/RelationGraph.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;div class=&quot;widget&quot;&gt;&#10;    &lt;h3&gt;Relation Graph&lt;/h3&gt;&#10;    &lt;p&gt;TODO: render graph with G6.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;  name: 'RelationGraph'&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.widget {&#10;  padding: 16px;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/components/UserStatsPanel.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/components/UserStatsPanel.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;div class=&quot;widget&quot;&gt;&#10;    &lt;h3&gt;User Stats&lt;/h3&gt;&#10;    &lt;p&gt;TODO: add stats panel.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;  name: 'UserStatsPanel'&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.widget {&#10;  padding: 16px;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/components/UserTable.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/components/UserTable.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;div class=&quot;widget&quot;&gt;&#10;    &lt;h3&gt;User Table&lt;/h3&gt;&#10;    &lt;p&gt;TODO: add table component.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;  name: 'UserTable'&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.widget {&#10;  padding: 16px;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/components/WordCloud.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/components/WordCloud.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;div class=&quot;widget&quot;&gt;&#10;    &lt;h3&gt;Word Cloud&lt;/h3&gt;&#10;    &lt;p&gt;TODO: render word cloud.&lt;/p&gt;&#10;  &lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;  name: 'WordCloud'&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.widget {&#10;  padding: 16px;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/main.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/main.js" />
+              <option name="originalContent" value="import { createApp } from 'vue'&#10;import App from './App.vue'&#10;&#10;createApp(App).mount('#app')&#10;" />
+              <option name="updatedContent" value="import { createApp } from 'vue'&#10;import ElementPlus from 'element-plus'&#10;import 'element-plus/dist/index.css'&#10;import App from './App.vue'&#10;import router from './router'&#10;&#10;const app = createApp(App)&#10;app.use(router)&#10;app.use(ElementPlus)&#10;app.mount('#app')&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/router/index.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/router/index.js" />
+              <option name="updatedContent" value="import { createRouter, createWebHistory } from 'vue-router'&#10;import Login from '../views/Login.vue'&#10;import Register from '../views/Register.vue'&#10;import UserList from '../views/UserList.vue'&#10;import UserDetail from '../views/UserDetail.vue'&#10;import AdminUsers from '../views/AdminUsers.vue'&#10;import CurrentUser from '../views/CurrentUser.vue'&#10;&#10;const routes = [&#10;  { path: '/', redirect: '/login' },&#10;  { path: '/login', component: Login },&#10;  { path: '/register', component: Register },&#10;  { path: '/users', component: UserList },&#10;  { path: '/users/:id', component: UserDetail, props: true },&#10;  { path: '/admin/users', component: AdminUsers },&#10;  { path: '/me', component: CurrentUser }&#10;]&#10;&#10;const router = createRouter({&#10;  history: createWebHistory(),&#10;  routes&#10;})&#10;&#10;router.beforeEach((to, from, next) =&gt; {&#10;  const token = localStorage.getItem('token')&#10;  const publicPaths = ['/login', '/register']&#10;  if (!token &amp;&amp; !publicPaths.includes(to.path)) {&#10;    next('/login')&#10;    return&#10;  }&#10;  if (token &amp;&amp; publicPaths.includes(to.path)) {&#10;    next('/users')&#10;    return&#10;  }&#10;  next()&#10;})&#10;&#10;export default router" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/views/AdminUsers.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/views/AdminUsers.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;section class=&quot;page&quot;&gt;&#10;    &lt;h1&gt;Admin User Management&lt;/h1&gt;&#10;    &lt;p&gt;TODO: build admin actions for labels.&lt;/p&gt;&#10;  &lt;/section&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;export default {&#10;  name: 'AdminUsers'&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.page {&#10;  padding: 24px;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/views/CurrentUser.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/views/CurrentUser.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;section class=&quot;page&quot;&gt;&#10;    &lt;h1&gt;Current User&lt;/h1&gt;&#10;    &lt;p v-if=&quot;loading&quot;&gt;Loading...&lt;/p&gt;&#10;    &lt;p v-else-if=&quot;error&quot;&gt;{{ error }}&lt;/p&gt;&#10;    &lt;div v-else-if=&quot;profile&quot; class=&quot;card&quot;&gt;&#10;      &lt;div class=&quot;row&quot;&gt;&lt;span class=&quot;label&quot;&gt;User ID:&lt;/span&gt;{{ profile.id }}&lt;/div&gt;&#10;      &lt;div class=&quot;row&quot;&gt;&lt;span class=&quot;label&quot;&gt;Username:&lt;/span&gt;{{ profile.username }}&lt;/div&gt;&#10;      &lt;div class=&quot;row&quot;&gt;&lt;span class=&quot;label&quot;&gt;Role:&lt;/span&gt;{{ profile.role }}&lt;/div&gt;&#10;      &lt;div class=&quot;row&quot;&gt;&lt;span class=&quot;label&quot;&gt;Status:&lt;/span&gt;{{ profile.status }}&lt;/div&gt;&#10;    &lt;/div&gt;&#10;    &lt;p v-else&gt;No profile data.&lt;/p&gt;&#10;  &lt;/section&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import { me } from '../api/auth'&#10;&#10;export default {&#10;  name: 'CurrentUser',&#10;  data() {&#10;    return {&#10;      loading: false,&#10;      error: '',&#10;      profile: null&#10;    }&#10;  },&#10;  mounted() {&#10;    this.loadProfile()&#10;  },&#10;  methods: {&#10;    async loadProfile() {&#10;      this.loading = true&#10;      this.error = ''&#10;      try {&#10;        const response = await me()&#10;        this.profile = response.data.data&#10;      } catch (err) {&#10;        this.profile = null&#10;        this.error = 'Failed to load profile. Please login again.'&#10;      } finally {&#10;        this.loading = false&#10;      }&#10;    }&#10;  }&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.page {&#10;  padding: 24px;&#10;}&#10;&#10;.card {&#10;  margin-top: 16px;&#10;  padding: 16px;&#10;  border: 1px solid #e5e7eb;&#10;  border-radius: 8px;&#10;  max-width: 420px;&#10;}&#10;&#10;.row {&#10;  display: flex;&#10;  gap: 8px;&#10;  padding: 6px 0;&#10;}&#10;&#10;.label {&#10;  width: 90px;&#10;  color: #6b7280;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/views/Login.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/views/Login.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;section class=&quot;page&quot;&gt;&#10;    &lt;el-card class=&quot;card&quot;&gt;&#10;      &lt;template #header&gt;&#10;        &lt;span&gt;Login&lt;/span&gt;&#10;      &lt;/template&gt;&#10;      &lt;el-form :model=&quot;form&quot; label-width=&quot;90px&quot;&gt;&#10;        &lt;el-form-item label=&quot;Username&quot;&gt;&#10;          &lt;el-input v-model=&quot;form.username&quot; placeholder=&quot;Enter username&quot; autocomplete=&quot;username&quot; /&gt;&#10;        &lt;/el-form-item&gt;&#10;        &lt;el-form-item label=&quot;Password&quot;&gt;&#10;          &lt;el-input v-model=&quot;form.password&quot; type=&quot;password&quot; placeholder=&quot;Enter password&quot; autocomplete=&quot;current-password&quot; /&gt;&#10;        &lt;/el-form-item&gt;&#10;        &lt;el-form-item&gt;&#10;          &lt;el-button type=&quot;primary&quot; :loading=&quot;loading&quot; @click=&quot;handleLogin&quot;&gt;Login&lt;/el-button&gt;&#10;        &lt;/el-form-item&gt;&#10;      &lt;/el-form&gt;&#10;      &lt;p v-if=&quot;error&quot; class=&quot;error&quot;&gt;{{ error }}&lt;/p&gt;&#10;      &lt;p class=&quot;hint&quot;&gt;&#10;        No account?&#10;        &lt;router-link to=&quot;/register&quot;&gt;Register&lt;/router-link&gt;&#10;      &lt;/p&gt;&#10;    &lt;/el-card&gt;&#10;  &lt;/section&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import { login } from '../api/auth'&#10;&#10;export default {&#10;  name: 'LoginView',&#10;  data() {&#10;    return {&#10;      form: {&#10;        username: '',&#10;        password: ''&#10;      },&#10;      loading: false,&#10;      error: ''&#10;    }&#10;  },&#10;  methods: {&#10;    async handleLogin() {&#10;      if (!this.form.username || !this.form.password) {&#10;        this.error = 'Please enter username and password.'&#10;        return&#10;      }&#10;      this.loading = true&#10;      this.error = ''&#10;      try {&#10;        const response = await login(this.form)&#10;        const token = response.data.data?.token&#10;        if (!token) {&#10;          this.error = 'Login failed. Token missing.'&#10;          return&#10;        }&#10;        localStorage.setItem('token', token)&#10;        window.dispatchEvent(new Event('storage'))&#10;        this.$router.push('/users')&#10;      } catch (err) {&#10;        this.error = 'Login failed. Please check your credentials.'&#10;      } finally {&#10;        this.loading = false&#10;      }&#10;    }&#10;  }&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.page {&#10;  min-height: calc(100vh - 56px);&#10;  display: flex;&#10;  align-items: center;&#10;  justify-content: center;&#10;  padding: 24px;&#10;}&#10;&#10;.card {&#10;  width: 360px;&#10;}&#10;&#10;.hint {&#10;  margin-top: 12px;&#10;  font-size: 12px;&#10;  color: #6b7280;&#10;}&#10;&#10;.error {&#10;  color: #d14343;&#10;  margin-top: 8px;&#10;}&#10;&lt;/style&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/views/Register.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/views/Register.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;section class=&quot;page&quot;&gt;&#10;    &lt;el-card class=&quot;card&quot;&gt;&#10;      &lt;template #header&gt;&#10;        &lt;span&gt;Register&lt;/span&gt;&#10;      &lt;/template&gt;&#10;      &lt;el-form :model=&quot;form&quot; label-width=&quot;90px&quot;&gt;&#10;        &lt;el-form-item label=&quot;Username&quot;&gt;&#10;          &lt;el-input v-model=&quot;form.username&quot; placeholder=&quot;Choose username&quot; autocomplete=&quot;username&quot; /&gt;&#10;        &lt;/el-form-item&gt;&#10;        &lt;el-form-item label=&quot;Password&quot;&gt;&#10;          &lt;el-input v-model=&quot;form.password&quot; type=&quot;password&quot; placeholder=&quot;Choose password&quot; autocomplete=&quot;new-password&quot; /&gt;&#10;        &lt;/el-form-item&gt;&#10;        &lt;el-form-item&gt;&#10;          &lt;el-button type=&quot;primary&quot; :loading=&quot;loading&quot; @click=&quot;handleRegister&quot;&gt;Register&lt;/el-button&gt;&#10;        &lt;/el-form-item&gt;&#10;      &lt;/el-form&gt;&#10;      &lt;p v-if=&quot;error&quot; class=&quot;error&quot;&gt;{{ error }}&lt;/p&gt;&#10;      &lt;p class=&quot;hint&quot;&gt;&#10;        Already have an account?&#10;        &lt;router-link to=&quot;/login&quot;&gt;Login&lt;/router-link&gt;&#10;      &lt;/p&gt;&#10;    &lt;/el-card&gt;&#10;  &lt;/section&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import { register } from '../api/auth'&#10;&#10;export default {&#10;  name: 'RegisterView',&#10;  data() {&#10;    return {&#10;      form: {&#10;        username: '',&#10;        password: ''&#10;      },&#10;      loading: false,&#10;      error: ''&#10;    }&#10;  },&#10;  methods: {&#10;    async handleRegister() {&#10;      if (!this.form.username || !this.form.password) {&#10;        this.error = 'Please enter username and password.'&#10;        return&#10;      }&#10;      this.loading = true&#10;      this.error = ''&#10;      try {&#10;        await register(this.form)&#10;        this.$router.push('/login')&#10;      } catch (err) {&#10;        this.error = 'Registration failed. Try another username.'&#10;      } finally {&#10;        this.loading = false&#10;      }&#10;    }&#10;  }&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.page {&#10;  min-height: calc(100vh - 56px);&#10;  display: flex;&#10;  align-items: center;&#10;  justify-content: center;&#10;  padding: 24px;&#10;}&#10;&#10;.card {&#10;  width: 360px;&#10;}&#10;&#10;.hint {&#10;  margin-top: 12px;&#10;  font-size: 12px;&#10;  color: #6b7280;&#10;}&#10;&#10;.error {&#10;  color: #d14343;&#10;  margin-top: 8px;&#10;}&#10;&lt;/style&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/views/UserDetail.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/views/UserDetail.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;section class=&quot;page&quot;&gt;&#10;    &lt;h1&gt;User Detail&lt;/h1&gt;&#10;    &lt;p v-if=&quot;loading&quot;&gt;Loading...&lt;/p&gt;&#10;    &lt;p v-else-if=&quot;error&quot; class=&quot;error&quot;&gt;{{ error }}&lt;/p&gt;&#10;    &lt;div v-else&gt;&#10;      &lt;el-card class=&quot;section&quot; v-if=&quot;detail&quot;&gt;&#10;        &lt;template #header&gt;&#10;          &lt;span&gt;Profile&lt;/span&gt;&#10;        &lt;/template&gt;&#10;        &lt;el-descriptions :column=&quot;2&quot; border&gt;&#10;          &lt;el-descriptions-item label=&quot;User ID&quot;&gt;{{ detail.userId }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Nickname&quot;&gt;{{ detail.nickName }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Followers&quot;&gt;{{ detail.followersCount }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Following&quot;&gt;{{ detail.followCount }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Statuses&quot;&gt;{{ detail.statusesCount }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Verified&quot;&gt;&#10;            &lt;el-tag :type=&quot;detail.verified ? 'primary' : 'info'&quot; effect=&quot;plain&quot;&gt;&#10;              {{ detail.verified ? 'Verified' : 'Unverified' }}&#10;            &lt;/el-tag&gt;&#10;          &lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Original&quot;&gt;{{ detail.originalCount }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Forward&quot;&gt;{{ detail.forwardCount }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Mal Prob&quot;&gt;{{ detail.malProb }}&lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Malicious&quot;&gt;&#10;            &lt;el-tag :type=&quot;detail.isMalicious ? 'danger' : 'success'&quot; effect=&quot;plain&quot;&gt;&#10;              {{ detail.isMalicious ? 'Malicious' : 'Normal' }}&#10;            &lt;/el-tag&gt;&#10;          &lt;/el-descriptions-item&gt;&#10;          &lt;el-descriptions-item label=&quot;Description&quot; :span=&quot;2&quot;&gt;{{ detail.description }}&lt;/el-descriptions-item&gt;&#10;        &lt;/el-descriptions&gt;&#10;      &lt;/el-card&gt;&#10;&#10;      &lt;el-card class=&quot;section&quot;&gt;&#10;        &lt;template #header&gt;&#10;          &lt;span&gt;Word Cloud&lt;/span&gt;&#10;        &lt;/template&gt;&#10;        &lt;el-table :data=&quot;wordCloud&quot; border&gt;&#10;          &lt;el-table-column prop=&quot;word&quot; label=&quot;Word&quot; /&gt;&#10;          &lt;el-table-column prop=&quot;count&quot; label=&quot;Count&quot; width=&quot;120&quot; /&gt;&#10;        &lt;/el-table&gt;&#10;      &lt;/el-card&gt;&#10;&#10;      &lt;el-card class=&quot;section&quot;&gt;&#10;        &lt;template #header&gt;&#10;          &lt;span&gt;Active Hours&lt;/span&gt;&#10;        &lt;/template&gt;&#10;        &lt;el-table :data=&quot;activeHours&quot; border&gt;&#10;          &lt;el-table-column prop=&quot;hour&quot; label=&quot;Hour&quot; width=&quot;120&quot; /&gt;&#10;          &lt;el-table-column prop=&quot;count&quot; label=&quot;Count&quot; width=&quot;120&quot; /&gt;&#10;        &lt;/el-table&gt;&#10;      &lt;/el-card&gt;&#10;    &lt;/div&gt;&#10;  &lt;/section&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import { getUserActiveHours, getUserDetail, getUserWordCloud } from '../api/users'&#10;&#10;export default {&#10;  name: 'UserDetail',&#10;  props: {&#10;    id: {&#10;      type: String,&#10;      required: false&#10;    }&#10;  },&#10;  data() {&#10;    return {&#10;      loading: false,&#10;      error: '',&#10;      detail: null,&#10;      wordCloud: [],&#10;      activeHours: []&#10;    }&#10;  },&#10;  mounted() {&#10;    this.loadAll()&#10;  },&#10;  watch: {&#10;    id() {&#10;      this.loadAll()&#10;    }&#10;  },&#10;  methods: {&#10;    async loadAll() {&#10;      const userId = this.id || this.$route.params.id&#10;      if (!userId) {&#10;        this.error = 'Missing user id.'&#10;        return&#10;      }&#10;      this.loading = true&#10;      this.error = ''&#10;      try {&#10;        const [detailRes, wordRes, hoursRes] = await Promise.all([&#10;          getUserDetail(userId),&#10;          getUserWordCloud(userId),&#10;          getUserActiveHours(userId)&#10;        ])&#10;        this.detail = detailRes.data.data&#10;        this.wordCloud = wordRes.data.data || []&#10;        this.activeHours = hoursRes.data.data || []&#10;      } catch (err) {&#10;        this.error = 'Failed to load user detail.'&#10;        this.detail = null&#10;        this.wordCloud = []&#10;        this.activeHours = []&#10;      } finally {&#10;        this.loading = false&#10;      }&#10;    }&#10;  }&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.page {&#10;  padding: 24px;&#10;}&#10;&#10;.section {&#10;  margin-top: 16px;&#10;}&#10;&#10;.error {&#10;  color: #d14343;&#10;}&#10;&lt;/style&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds-web/src/views/UserList.vue">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds-web/src/views/UserList.vue" />
+              <option name="updatedContent" value="&lt;template&gt;&#10;  &lt;section class=&quot;page&quot;&gt;&#10;    &lt;h1&gt;Users&lt;/h1&gt;&#10;    &lt;div class=&quot;toolbar&quot;&gt;&#10;      &lt;el-input v-model=&quot;keyword&quot; placeholder=&quot;Search by user id or nickname&quot; class=&quot;search-input&quot; clearable /&gt;&#10;      &lt;el-button type=&quot;primary&quot; @click=&quot;fetchUsers&quot;&gt;Search&lt;/el-button&gt;&#10;    &lt;/div&gt;&#10;    &lt;el-table :data=&quot;records&quot; v-loading=&quot;loading&quot; border&gt;&#10;      &lt;el-table-column label=&quot;User ID&quot; min-width=&quot;160&quot;&gt;&#10;        &lt;template #default=&quot;scope&quot;&gt;&#10;          &lt;router-link :to=&quot;`/users/${scope.row.userId}`&quot; class=&quot;link&quot;&gt;&#10;            {{ scope.row.userId }}&#10;          &lt;/router-link&gt;&#10;        &lt;/template&gt;&#10;      &lt;/el-table-column&gt;&#10;      &lt;el-table-column label=&quot;Nickname&quot; min-width=&quot;140&quot;&gt;&#10;        &lt;template #default=&quot;scope&quot;&gt;&#10;          &lt;router-link :to=&quot;`/users/${scope.row.userId}`&quot; class=&quot;link&quot;&gt;&#10;            {{ scope.row.nickName }}&#10;          &lt;/router-link&gt;&#10;        &lt;/template&gt;&#10;      &lt;/el-table-column&gt;&#10;      &lt;el-table-column prop=&quot;followersCount&quot; label=&quot;Followers&quot; width=&quot;110&quot; /&gt;&#10;      &lt;el-table-column prop=&quot;followCount&quot; label=&quot;Following&quot; width=&quot;110&quot; /&gt;&#10;      &lt;el-table-column prop=&quot;statusesCount&quot; label=&quot;Statuses&quot; width=&quot;110&quot; /&gt;&#10;      &lt;el-table-column prop=&quot;malProb&quot; label=&quot;Mal Prob&quot; width=&quot;110&quot; /&gt;&#10;      &lt;el-table-column label=&quot;Malicious&quot; width=&quot;120&quot;&gt;&#10;        &lt;template #default=&quot;scope&quot;&gt;&#10;          &lt;el-tag :type=&quot;scope.row.isMalicious ? 'danger' : 'success'&quot; effect=&quot;plain&quot;&gt;&#10;            {{ scope.row.isMalicious ? 'Malicious' : 'Normal' }}&#10;          &lt;/el-tag&gt;&#10;        &lt;/template&gt;&#10;      &lt;/el-table-column&gt;&#10;      &lt;el-table-column label=&quot;Verified&quot; width=&quot;120&quot;&gt;&#10;        &lt;template #default=&quot;scope&quot;&gt;&#10;          &lt;el-tag :type=&quot;scope.row.verified ? 'primary' : 'info'&quot; effect=&quot;plain&quot;&gt;&#10;            {{ scope.row.verified ? 'Verified' : 'Unverified' }}&#10;          &lt;/el-tag&gt;&#10;        &lt;/template&gt;&#10;      &lt;/el-table-column&gt;&#10;    &lt;/el-table&gt;&#10;    &lt;div class=&quot;pagination&quot;&gt;&#10;      &lt;el-pagination&#10;        background&#10;        layout=&quot;total, sizes, prev, pager, next&quot;&#10;        :total=&quot;total&quot;&#10;        :page-size=&quot;pageSize&quot;&#10;        :current-page=&quot;pageNum&quot;&#10;        :page-sizes=&quot;[10, 20, 50]&quot;&#10;        @current-change=&quot;handlePageChange&quot;&#10;        @size-change=&quot;handleSizeChange&quot;&#10;      /&gt;&#10;    &lt;/div&gt;&#10;    &lt;p v-if=&quot;error&quot; class=&quot;error&quot;&gt;{{ error }}&lt;/p&gt;&#10;  &lt;/section&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script&gt;&#10;import { searchUsers } from '../api/users'&#10;&#10;export default {&#10;  name: 'UserList',&#10;  data() {&#10;    return {&#10;      keyword: '',&#10;      records: [],&#10;      total: 0,&#10;      pageNum: 1,&#10;      pageSize: 10,&#10;      loading: false,&#10;      error: ''&#10;    }&#10;  },&#10;  mounted() {&#10;    this.fetchUsers()&#10;  },&#10;  methods: {&#10;    async fetchUsers() {&#10;      this.loading = true&#10;      this.error = ''&#10;      try {&#10;        const response = await searchUsers({&#10;          pageNum: this.pageNum,&#10;          pageSize: this.pageSize,&#10;          keyword: this.keyword&#10;        })&#10;        const data = response.data.data || {}&#10;        this.records = data.records || []&#10;        this.total = data.total || 0&#10;      } catch (err) {&#10;        this.error = 'Failed to load users.'&#10;        this.records = []&#10;        this.total = 0&#10;      } finally {&#10;        this.loading = false&#10;      }&#10;    },&#10;    handlePageChange(page) {&#10;      this.pageNum = page&#10;      this.fetchUsers()&#10;    },&#10;    handleSizeChange(size) {&#10;      this.pageSize = size&#10;      this.pageNum = 1&#10;      this.fetchUsers()&#10;    }&#10;  }&#10;}&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped&gt;&#10;.page {&#10;  padding: 24px;&#10;}&#10;&#10;.toolbar {&#10;  display: flex;&#10;  gap: 12px;&#10;  margin: 12px 0 16px;&#10;  align-items: center;&#10;}&#10;&#10;.search-input {&#10;  max-width: 320px;&#10;}&#10;&#10;.pagination {&#10;  margin-top: 16px;&#10;  display: flex;&#10;  justify-content: flex-end;&#10;}&#10;&#10;.error {&#10;  margin-top: 12px;&#10;  color: #d14343;&#10;}&#10;&#10;.link {&#10;  color: #2563eb;&#10;  text-decoration: none;&#10;}&#10;&#10;.link:hover {&#10;  text-decoration: underline;&#10;}&#10;&lt;/style&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/BdsApplication.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/BdsApplication.java" />
+              <option name="originalContent" value="package com.bds;&#10;&#10;import org.springframework.boot.SpringApplication;&#10;import org.springframework.boot.autoconfigure.SpringBootApplication;&#10;&#10;@SpringBootApplication&#10;public class BdsApplication {&#10;&#10;&#9;public static void main(String[] args) {&#10;&#9;&#9;SpringApplication.run(BdsApplication.class, args);&#10;&#9;}&#10;&#10;}&#10;" />
+              <option name="updatedContent" value="package com.bds;&#10;&#10;import org.mybatis.spring.annotation.MapperScan;&#10;import org.springframework.boot.SpringApplication;&#10;import org.springframework.boot.autoconfigure.SpringBootApplication;&#10;&#10;@SpringBootApplication&#10;@MapperScan(&quot;com.bds&quot;)&#10;public class BdsApplication {&#10;&#10;&#9;public static void main(String[] args) {&#10;&#9;&#9;SpringApplication.run(BdsApplication.class, args);&#10;&#9;}&#10;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/controller/AdminController.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/controller/AdminController.java" />
+              <option name="updatedContent" value="package com.bds.admin.controller;&#13;&#10;&#13;&#10;import com.bds.admin.dto.UpdateAuthUserRoleRequest;&#13;&#10;import com.bds.admin.dto.UpdateAuthUserStatusRequest;&#13;&#10;import com.bds.admin.dto.UpdateUserLabelRequest;&#13;&#10;import com.bds.admin.service.AdminService;&#13;&#10;import com.bds.common.Result;&#13;&#10;import org.springframework.web.bind.annotation.*;&#13;&#10;&#13;&#10;@RestController&#13;&#10;@RequestMapping(&quot;/api/admin&quot;)&#13;&#10;public class AdminController {&#13;&#10;&#9;private final AdminService adminService;&#13;&#10;&#13;&#10;&#9;public AdminController(AdminService adminService) {&#13;&#10;&#9;&#9;this.adminService = adminService;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@PutMapping(&quot;/users/{id}/label&quot;)&#13;&#10;&#9;public Result&lt;Void&gt; updateUserLabel(@PathVariable(&quot;id&quot;) String userId,&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;@RequestBody UpdateUserLabelRequest request) {&#13;&#10;&#9;&#9;request.setUserId(userId);&#13;&#10;&#9;&#9;adminService.updateUserLabel(request);&#13;&#10;&#9;&#9;return Result.success(null);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@PutMapping(&quot;/auth-users/{id}/role&quot;)&#13;&#10;&#9;public Result&lt;Void&gt; updateAuthUserRole(@PathVariable(&quot;id&quot;) String userId,&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;@RequestBody UpdateAuthUserRoleRequest request) {&#13;&#10;&#9;&#9;request.setUserId(userId);&#13;&#10;&#9;&#9;adminService.updateAuthUserRole(request);&#13;&#10;&#9;&#9;return Result.success(null);&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@PutMapping(&quot;/auth-users/{id}/status&quot;)&#13;&#10;&#9;public Result&lt;Void&gt; updateAuthUserStatus(@PathVariable(&quot;id&quot;) String userId,&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;@RequestBody UpdateAuthUserStatusRequest request) {&#13;&#10;&#9;&#9;request.setUserId(userId);&#13;&#10;&#9;&#9;adminService.updateAuthUserStatus(request);&#13;&#10;&#9;&#9;return Result.success(null);&#13;&#10;&#9;}&#13;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/dto/UpdateAuthUserRoleRequest.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/dto/UpdateAuthUserRoleRequest.java" />
+              <option name="updatedContent" value="package com.bds.admin.dto;&#10;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class UpdateAuthUserRoleRequest {&#10;&#9;private String userId;&#10;&#9;private String role;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/dto/UpdateAuthUserStatusRequest.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/dto/UpdateAuthUserStatusRequest.java" />
+              <option name="updatedContent" value="package com.bds.admin.dto;&#10;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class UpdateAuthUserStatusRequest {&#10;&#9;private String userId;&#10;&#9;private Integer status;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/dto/UpdateUserLabelRequest.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/admin/dto/UpdateUserLabelRequest.java" />
+              <option name="updatedContent" value="package com.bds.admin.dto;&#10;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class UpdateUserLabelRequest {&#10;&#9;private String userId;&#10;&#9;private Boolean isMalicious;&#10;&#9;private Double malProb;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/controller/AuthController.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/controller/AuthController.java" />
+              <option name="updatedContent" value="package com.bds.auth.controller;&#10;&#10;import com.bds.auth.dto.AuthUserProfileResponse;&#10;import com.bds.auth.dto.LoginRequest;&#10;import com.bds.auth.dto.RegisterRequest;&#10;import com.bds.auth.dto.TokenResponse;&#10;import com.bds.auth.service.AuthService;&#10;import com.bds.common.Result;&#10;import jakarta.validation.Valid;&#10;import org.springframework.web.bind.annotation.GetMapping;&#10;import org.springframework.web.bind.annotation.PostMapping;&#10;import org.springframework.web.bind.annotation.RequestBody;&#10;import org.springframework.web.bind.annotation.RequestMapping;&#10;import org.springframework.web.bind.annotation.RestController;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/api/auth&quot;)&#10;public class AuthController {&#10;&#9;private final AuthService authService;&#10;&#10;&#9;public AuthController(AuthService authService) {&#10;&#9;&#9;this.authService = authService;&#10;&#9;}&#10;&#10;&#9;@PostMapping(&quot;/login&quot;)&#10;&#9;public Result&lt;TokenResponse&gt; login(@Valid @RequestBody LoginRequest request) {&#10;&#9;&#9;return Result.success(authService.login(request));&#10;&#9;}&#10;&#10;&#9;@PostMapping(&quot;/register&quot;)&#10;&#9;public Result&lt;TokenResponse&gt; register(@Valid @RequestBody RegisterRequest request) {&#10;&#9;&#9;return Result.success(authService.register(request));&#10;&#9;}&#10;&#10;&#9;@GetMapping(&quot;/me&quot;)&#10;&#9;public Result&lt;AuthUserProfileResponse&gt; me() {&#10;&#9;&#9;return Result.success(authService.getCurrentUserProfile());&#10;&#9;}&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/AuthUserProfileResponse.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/AuthUserProfileResponse.java" />
+              <option name="updatedContent" value="package com.bds.auth.dto;&#10;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;&#10;@Data&#10;@AllArgsConstructor&#10;public class AuthUserProfileResponse {&#10;&#9;private String id;&#10;&#9;private String username;&#10;&#9;private String role;&#10;&#9;private Integer status;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/LoginRequest.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/LoginRequest.java" />
+              <option name="updatedContent" value="package com.bds.auth.dto;&#10;&#10;import jakarta.validation.constraints.NotBlank;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class LoginRequest {&#10;&#9;@NotBlank&#10;&#9;private String username;&#10;&#10;&#9;@NotBlank&#10;&#9;private String password;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/RegisterRequest.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/RegisterRequest.java" />
+              <option name="updatedContent" value="package com.bds.auth.dto;&#10;&#10;import jakarta.validation.constraints.NotBlank;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class RegisterRequest {&#10;&#9;@NotBlank&#10;&#9;private String username;&#10;&#10;&#9;@NotBlank&#10;&#9;private String password;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/TokenResponse.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/dto/TokenResponse.java" />
+              <option name="updatedContent" value="package com.bds.auth.dto;&#10;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;import lombok.NoArgsConstructor;&#10;&#10;@Data&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class TokenResponse {&#10;&#9;private String token;&#10;&#9;private String tokenType;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/entity/AuthUserEntity.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/entity/AuthUserEntity.java" />
+              <option name="updatedContent" value="package com.bds.auth.entity;&#10;&#10;import com.baomidou.mybatisplus.annotation.IdType;&#10;import com.baomidou.mybatisplus.annotation.TableId;&#10;import com.baomidou.mybatisplus.annotation.TableName;&#10;import lombok.Data;&#10;&#10;import java.time.LocalDateTime;&#10;&#10;@Data&#10;@TableName(&quot;auth_users&quot;)&#10;public class AuthUserEntity {&#10;&#9;@TableId(type = IdType.ASSIGN_ID)&#10;&#9;private String id;&#10;&#9;private String username;&#10;&#9;private String passwordHash;&#10;&#9;private String passwordSalt;&#10;&#9;private String role;&#10;&#9;private Integer status;&#10;&#9;private LocalDateTime createdAt;&#10;&#9;private LocalDateTime updatedAt;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/mapper/AuthUserMapper.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/mapper/AuthUserMapper.java" />
+              <option name="updatedContent" value="package com.bds.auth.mapper;&#10;&#10;import com.baomidou.mybatisplus.core.mapper.BaseMapper;&#10;import com.bds.auth.entity.AuthUserEntity;&#10;import org.apache.ibatis.annotations.Mapper;&#10;&#10;@Mapper&#10;public interface AuthUserMapper extends BaseMapper&lt;AuthUserEntity&gt; {&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/security/JwtAuthFilter.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/security/JwtAuthFilter.java" />
+              <option name="updatedContent" value="package com.bds.auth.security;&#10;&#10;import com.bds.auth.service.JwtService;&#10;import io.jsonwebtoken.Claims;&#10;import jakarta.servlet.FilterChain;&#10;import jakarta.servlet.ServletException;&#10;import jakarta.servlet.http.HttpServletRequest;&#10;import jakarta.servlet.http.HttpServletResponse;&#10;import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;&#10;import org.springframework.security.core.authority.SimpleGrantedAuthority;&#10;import org.springframework.security.core.context.SecurityContextHolder;&#10;import org.springframework.stereotype.Component;&#10;import org.springframework.web.filter.OncePerRequestFilter;&#10;&#10;import java.io.IOException;&#10;import java.util.List;&#10;&#10;@Component&#10;public class JwtAuthFilter extends OncePerRequestFilter {&#10;&#9;private final JwtService jwtService;&#10;&#10;&#9;public JwtAuthFilter(JwtService jwtService) {&#10;&#9;&#9;this.jwtService = jwtService;&#10;&#9;}&#10;&#10;&#9;@Override&#10;&#9;protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)&#10;&#9;&#9;&#9;throws ServletException, IOException {&#10;&#9;&#9;String token = resolveToken(request);&#10;&#9;&#9;if (token != null &amp;&amp; SecurityContextHolder.getContext().getAuthentication() == null) {&#10;&#9;&#9;&#9;Claims claims = jwtService.parseToken(token);&#10;&#9;&#9;&#9;if (claims != null) {&#10;&#9;&#9;&#9;&#9;String userId = claims.getSubject();&#10;&#9;&#9;&#9;&#9;String username = claims.get(&quot;username&quot;, String.class);&#10;&#9;&#9;&#9;&#9;String role = claims.get(&quot;role&quot;, String.class);&#10;&#9;&#9;&#9;&#9;String normalizedRole = role == null ? &quot;USER&quot; : role.toUpperCase();&#10;&#9;&#9;&#9;&#9;UserPrincipal principal = new UserPrincipal(userId, username, normalizedRole);&#10;&#9;&#9;&#9;&#9;List&lt;SimpleGrantedAuthority&gt; authorities = List.of(new SimpleGrantedAuthority(&quot;ROLE_&quot; + normalizedRole));&#10;&#9;&#9;&#9;&#9;UsernamePasswordAuthenticationToken authentication =&#10;&#9;&#9;&#9;&#9;&#9;&#9;new UsernamePasswordAuthenticationToken(principal, null, authorities);&#10;&#9;&#9;&#9;&#9;SecurityContextHolder.getContext().setAuthentication(authentication);&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#9;&#9;filterChain.doFilter(request, response);&#10;&#9;}&#10;&#10;&#9;private String resolveToken(HttpServletRequest request) {&#10;&#9;&#9;String header = request.getHeader(&quot;Authorization&quot;);&#10;&#9;&#9;if (header == null) {&#10;&#9;&#9;&#9;return null;&#10;&#9;&#9;}&#10;&#9;&#9;String prefix = &quot;Bearer &quot;;&#10;&#9;&#9;if (header.startsWith(prefix)) {&#10;&#9;&#9;&#9;return header.substring(prefix.length()).trim();&#10;&#9;&#9;}&#10;&#9;&#9;return null;&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/security/UserPrincipal.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/security/UserPrincipal.java" />
+              <option name="updatedContent" value="package com.bds.auth.security;&#10;&#10;public record UserPrincipal(String userId, String username, String role) {&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/service/JwtService.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/auth/service/JwtService.java" />
+              <option name="updatedContent" value="package com.bds.auth.service;&#10;&#10;import com.bds.auth.entity.AuthUserEntity;&#10;import io.jsonwebtoken.Claims;&#10;import io.jsonwebtoken.Jws;&#10;import io.jsonwebtoken.JwtException;&#10;import io.jsonwebtoken.Jwts;&#10;import io.jsonwebtoken.security.Keys;&#10;import org.springframework.beans.factory.annotation.Value;&#10;import org.springframework.stereotype.Service;&#10;&#10;import javax.crypto.SecretKey;&#10;import java.nio.charset.StandardCharsets;&#10;import java.security.MessageDigest;&#10;import java.security.NoSuchAlgorithmException;&#10;import java.time.Instant;&#10;import java.util.Date;&#10;&#10;@Service&#10;public class JwtService {&#10;&#9;private final String secret;&#10;&#9;private final long expirationSeconds;&#10;&#9;private final String issuer;&#10;&#10;&#9;public JwtService(&#10;&#9;&#9;&#9;@Value(&quot;${jwt.secret}&quot;) String secret,&#10;&#9;&#9;&#9;@Value(&quot;${jwt.expiration-seconds}&quot;) long expirationSeconds,&#10;&#9;&#9;&#9;@Value(&quot;${jwt.issuer}&quot;) String issuer) {&#10;&#9;&#9;this.secret = secret;&#10;&#9;&#9;this.expirationSeconds = expirationSeconds;&#10;&#9;&#9;this.issuer = issuer;&#10;&#9;}&#10;&#10;&#9;public String issueToken(AuthUserEntity user) {&#10;&#9;&#9;Instant now = Instant.now();&#10;&#9;&#9;Instant exp = now.plusSeconds(expirationSeconds);&#10;&#9;&#9;return Jwts.builder()&#10;&#9;&#9;&#9;&#9;.issuer(issuer)&#10;&#9;&#9;&#9;&#9;.subject(user.getId())&#10;&#9;&#9;&#9;&#9;.claim(&quot;username&quot;, user.getUsername())&#10;&#9;&#9;&#9;&#9;.claim(&quot;role&quot;, user.getRole())&#10;&#9;&#9;&#9;&#9;.issuedAt(Date.from(now))&#10;&#9;&#9;&#9;&#9;.expiration(Date.from(exp))&#10;&#9;&#9;&#9;&#9;.signWith(signingKey())&#10;&#9;&#9;&#9;&#9;.compact();&#10;&#9;}&#10;&#10;&#9;public Claims parseToken(String token) {&#10;&#9;&#9;try {&#10;&#9;&#9;&#9;Jws&lt;Claims&gt; claimsJws = Jwts.parser()&#10;&#9;&#9;&#9;&#9;&#9;.verifyWith(signingKey())&#10;&#9;&#9;&#9;&#9;&#9;.build()&#10;&#9;&#9;&#9;&#9;&#9;.parseSignedClaims(token);&#10;&#9;&#9;&#9;return claimsJws.getPayload();&#10;&#9;&#9;} catch (JwtException ex) {&#10;&#9;&#9;&#9;return null;&#10;&#9;&#9;}&#10;&#9;}&#10;&#10;&#9;private SecretKey signingKey() {&#10;&#9;&#9;byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);&#10;&#9;&#9;if (keyBytes.length &lt; 32) {&#10;&#9;&#9;&#9;keyBytes = sha256(keyBytes);&#10;&#9;&#9;}&#10;&#9;&#9;return Keys.hmacShaKeyFor(keyBytes);&#10;&#9;}&#10;&#10;&#9;private byte[] sha256(byte[] input) {&#10;&#9;&#9;try {&#10;&#9;&#9;&#9;MessageDigest digest = MessageDigest.getInstance(&quot;SHA-256&quot;);&#10;&#9;&#9;&#9;return digest.digest(input);&#10;&#9;&#9;} catch (NoSuchAlgorithmException ex) {&#10;&#9;&#9;&#9;throw new IllegalStateException(&quot;SHA-256 not available&quot;, ex);&#10;&#9;&#9;}&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/common/CorsConfig.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/common/CorsConfig.java" />
+              <option name="originalContent" value="package com.bds.common;&#10;&#10;import org.springframework.context.annotation.Configuration;&#10;import org.springframework.web.servlet.config.annotation.CorsRegistry;&#10;import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;&#10;&#10;@Configuration&#10;public class CorsConfig implements WebMvcConfigurer {&#10;&#9;@Override&#10;&#9;public void addCorsMappings(CorsRegistry registry) {&#10;&#9;&#9;registry.addMapping(&quot;/**&quot;)&#10;&#9;&#9;&#9;&#9;.allowedOriginPatterns(&quot;*&quot;)// 允许所有源访问，可以指定具体的源&#10;&#9;&#9;&#9;&#9;.allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;)&#10;&#9;&#9;&#9;&#9;.allowedHeaders(&quot;*&quot;)// 允许所有请求头&#10;&#9;&#9;&#9;&#9;.allowCredentials(true);// 是否允许发送Cookie&#10;&#9;}&#10;}&#10;&#10;&#10;" />
+              <option name="updatedContent" value="package com.bds.common;&#10;&#10;import org.springframework.context.annotation.Bean;&#10;import org.springframework.context.annotation.Configuration;&#10;import org.springframework.web.cors.CorsConfiguration;&#10;import org.springframework.web.cors.CorsConfigurationSource;&#10;import org.springframework.web.cors.UrlBasedCorsConfigurationSource;&#10;import org.springframework.web.servlet.config.annotation.CorsRegistry;&#10;import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;&#10;&#10;@Configuration&#10;public class CorsConfig implements WebMvcConfigurer {&#10;&#9;@Override&#10;&#9;public void addCorsMappings(CorsRegistry registry) {&#10;&#9;&#9;registry.addMapping(&quot;/**&quot;)&#10;&#9;&#9;&#9;&#9;.allowedOrigins(&quot;http://localhost:8080&quot;)&#10;&#9;&#9;&#9;&#9;.allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;)&#10;&#9;&#9;&#9;&#9;.allowedHeaders(&quot;*&quot;)&#10;&#9;&#9;&#9;&#9;.allowCredentials(false);&#10;&#9;}&#10;&#10;&#9;@Bean&#10;&#9;public CorsConfigurationSource corsConfigurationSource() {&#10;&#9;&#9;CorsConfiguration configuration = new CorsConfiguration();&#10;&#9;&#9;configuration.addAllowedOrigin(&quot;http://localhost:8080&quot;);&#10;&#9;&#9;configuration.addAllowedMethod(CorsConfiguration.ALL);&#10;&#9;&#9;configuration.addAllowedHeader(CorsConfiguration.ALL);&#10;&#9;&#9;configuration.setAllowCredentials(false);&#10;&#9;&#9;UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();&#10;&#9;&#9;source.registerCorsConfiguration(&quot;/**&quot;, configuration);&#10;&#9;&#9;return source;&#10;&#9;}&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/common/MybatisPlusConfig.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/common/MybatisPlusConfig.java" />
+              <option name="updatedContent" value="package com.bds.common;&#10;&#10;import com.baomidou.mybatisplus.annotation.DbType;&#10;import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;&#10;import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;&#10;import org.springframework.context.annotation.Bean;&#10;import org.springframework.context.annotation.Configuration;&#10;&#10;@Configuration&#10;public class MybatisPlusConfig {&#10;&#9;@Bean&#10;&#9;public MybatisPlusInterceptor mybatisPlusInterceptor() {&#10;&#9;&#9;MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();&#10;&#9;&#9;interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));&#10;&#9;&#9;return interceptor;&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/common/PageResult.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/common/PageResult.java" />
+              <option name="updatedContent" value="package com.bds.common;&#10;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;&#10;import java.util.List;&#10;&#10;@Data&#10;@AllArgsConstructor&#10;public class PageResult&lt;T&gt; {&#10;&#9;private List&lt;T&gt; records;&#10;&#9;private long total;&#10;&#9;private int pageNum;&#10;&#9;private int pageSize;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/common/QueryPageParam.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/common/QueryPageParam.java" />
+              <option name="updatedContent" value="package com.bds.common;&#10;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class QueryPageParam {&#10;&#9;private int pageNum = 1;&#10;&#9;private int pageSize = 10;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/common/Result.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/common/Result.java" />
+              <option name="updatedContent" value="package com.bds.common;&#10;&#10;import lombok.AllArgsConstructor;&#10;import lombok.Data;&#10;import lombok.NoArgsConstructor;&#10;&#10;@Data&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class Result&lt;T&gt; {&#10;&#9;private int code;&#10;&#9;private String message;&#10;&#9;private T data;&#10;&#10;&#9;public static &lt;T&gt; Result&lt;T&gt; success(T data) {&#10;&#9;&#9;return new Result&lt;&gt;(200, &quot;OK&quot;, data);&#10;&#9;}&#10;&#10;&#9;public static &lt;T&gt; Result&lt;T&gt; success(String message, T data) {&#10;&#9;&#9;return new Result&lt;&gt;(200, message, data);&#10;&#9;}&#10;&#10;&#9;public static &lt;T&gt; Result&lt;T&gt; fail(int code, String message) {&#10;&#9;&#9;return new Result&lt;&gt;(code, message, null);&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/config/SecurityConfig.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/config/SecurityConfig.java" />
+              <option name="originalContent" value="package com.bds.config;&#10;&#10;import com.bds.auth.security.JwtAuthFilter;&#10;import org.springframework.context.annotation.Bean;&#10;import org.springframework.context.annotation.Configuration;&#10;import org.springframework.security.config.Customizer;&#10;import org.springframework.security.config.annotation.web.builders.HttpSecurity;&#10;import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;&#10;import org.springframework.security.config.http.SessionCreationPolicy;&#10;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;&#10;import org.springframework.security.crypto.password.PasswordEncoder;&#10;import org.springframework.security.web.SecurityFilterChain;&#10;import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;&#10;&#10;@Configuration&#10;@EnableWebSecurity&#10;public class SecurityConfig {&#10;&#9;private final JwtAuthFilter jwtAuthFilter;&#10;&#10;&#9;public SecurityConfig(JwtAuthFilter jwtAuthFilter) {&#10;&#9;&#9;this.jwtAuthFilter = jwtAuthFilter;&#10;&#9;}&#10;&#10;&#9;@Bean&#10;&#9;public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {&#10;&#9;&#9;return http&#10;&#9;&#9;&#9;&#9;.csrf(csrf -&gt; csrf.disable())&#10;&#9;&#9;&#9;&#9;.sessionManagement(session -&gt; session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))&#10;&#9;&#9;&#9;&#9;.authorizeHttpRequests(auth -&gt; auth&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(&quot;/api/auth/**&quot;).permitAll()&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(&quot;/api/admin/**&quot;).hasRole(&quot;ADMIN&quot;)&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(&quot;/api/**&quot;).authenticated()&#10;&#9;&#9;&#9;&#9;&#9;&#9;.anyRequest().permitAll())&#10;&#9;&#9;&#9;&#9;.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)&#10;&#9;&#9;&#9;&#9;.build();&#10;&#9;}&#10;&#10;&#9;@Bean&#10;&#9;public PasswordEncoder passwordEncoder() {&#10;&#9;&#9;return new BCryptPasswordEncoder();&#10;&#9;}&#10;}&#10;" />
+              <option name="updatedContent" value="package com.bds.config;&#10;&#10;import com.bds.auth.security.JwtAuthFilter;&#10;import org.springframework.context.annotation.Bean;&#10;import org.springframework.context.annotation.Configuration;&#10;import org.springframework.http.HttpMethod;&#10;import org.springframework.security.config.Customizer;&#10;import org.springframework.security.config.annotation.web.builders.HttpSecurity;&#10;import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;&#10;import org.springframework.security.config.http.SessionCreationPolicy;&#10;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;&#10;import org.springframework.security.crypto.password.PasswordEncoder;&#10;import org.springframework.security.web.SecurityFilterChain;&#10;import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;&#10;import org.springframework.web.cors.CorsConfigurationSource;&#10;&#10;@Configuration&#10;@EnableWebSecurity&#10;public class SecurityConfig {&#10;&#9;private final JwtAuthFilter jwtAuthFilter;&#10;&#9;private final CorsConfigurationSource corsConfigurationSource;&#10;&#10;&#9;public SecurityConfig(JwtAuthFilter jwtAuthFilter, CorsConfigurationSource corsConfigurationSource) {&#10;&#9;&#9;this.jwtAuthFilter = jwtAuthFilter;&#10;&#9;&#9;this.corsConfigurationSource = corsConfigurationSource;&#10;&#9;}&#10;&#10;&#9;@Bean&#10;&#9;public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {&#10;&#9;&#9;return http&#10;&#9;&#9;&#9;&#9;.cors(cors -&gt; cors.configurationSource(corsConfigurationSource))&#10;&#9;&#9;&#9;&#9;.csrf(csrf -&gt; csrf.disable())&#10;&#9;&#9;&#9;&#9;.sessionManagement(session -&gt; session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))&#10;&#9;&#9;&#9;&#9;.authorizeHttpRequests(auth -&gt; auth&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(HttpMethod.OPTIONS, &quot;/**&quot;).permitAll()&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(&quot;/api/auth/**&quot;).permitAll()&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(&quot;/api/admin/**&quot;).hasRole(&quot;ADMIN&quot;)&#10;&#9;&#9;&#9;&#9;&#9;&#9;.requestMatchers(&quot;/api/**&quot;).authenticated()&#10;&#9;&#9;&#9;&#9;&#9;&#9;.anyRequest().permitAll())&#10;&#9;&#9;&#9;&#9;.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)&#10;&#9;&#9;&#9;&#9;.build();&#10;&#9;}&#10;&#10;&#9;@Bean&#10;&#9;public PasswordEncoder passwordEncoder() {&#10;&#9;&#9;return new BCryptPasswordEncoder();&#10;&#9;}&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/dto/ActiveHourDTO.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/dto/ActiveHourDTO.java" />
+              <option name="updatedContent" value="package com.bds.profile.dto;&#10;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class ActiveHourDTO {&#10;&#9;private Integer hour;&#10;&#9;private Long count;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/dto/WordCloudDTO.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/dto/WordCloudDTO.java" />
+              <option name="updatedContent" value="package com.bds.profile.dto;&#10;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class WordCloudDTO {&#10;&#9;private String word;&#10;&#9;private Long count;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/service/UserProfileService.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/service/UserProfileService.java" />
+              <option name="updatedContent" value="package com.bds.profile.service;&#10;&#10;import com.bds.profile.dto.ActiveHourDTO;&#10;import com.bds.profile.dto.WordCloudDTO;&#10;import org.springframework.stereotype.Service;&#10;&#10;import java.util.Collections;&#10;import java.util.List;&#10;&#10;@Service&#10;public class UserProfileService {&#10;&#9;public List&lt;WordCloudDTO&gt; getWordCloud(String userId) {&#10;&#9;&#9;// TODO: compute word cloud from tweets&#10;&#9;&#9;return Collections.emptyList();&#10;&#9;}&#10;&#10;&#9;public List&lt;ActiveHourDTO&gt; getActiveHours(String userId) {&#10;&#9;&#9;// TODO: compute activity distribution by hour&#10;&#9;&#9;return Collections.emptyList();&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/util/WordCloudGenerator.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/profile/util/WordCloudGenerator.java" />
+              <option name="updatedContent" value="package com.bds.profile.util;&#10;&#10;public class WordCloudGenerator {&#10;&#9;private WordCloudGenerator() {&#10;&#9;}&#10;&#10;&#9;// TODO: implement word cloud generation from text corpus.&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/controller/RelationController.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/controller/RelationController.java" />
+              <option name="updatedContent" value="package com.bds.relation.controller;&#10;&#10;import com.bds.common.Result;&#10;import com.bds.relation.entity.RelationEntity;&#10;import com.bds.relation.service.RelationService;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;import java.util.List;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/api/relations&quot;)&#10;public class RelationController {&#10;&#9;private final RelationService relationService;&#10;&#10;&#9;public RelationController(RelationService relationService) {&#10;&#9;&#9;this.relationService = relationService;&#10;&#9;}&#10;&#10;&#9;@GetMapping(&quot;/{id}/followers&quot;)&#10;&#9;public Result&lt;List&lt;RelationEntity&gt;&gt; listFollowers(@PathVariable(&quot;id&quot;) String userId) {&#10;&#9;&#9;return Result.success(relationService.listFollowers(userId));&#10;&#9;}&#10;&#10;&#9;@GetMapping(&quot;/{id}/followees&quot;)&#10;&#9;public Result&lt;List&lt;RelationEntity&gt;&gt; listFollowees(@PathVariable(&quot;id&quot;) String userId) {&#10;&#9;&#9;return Result.success(relationService.listFollowees(userId));&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/entity/RelationEntity.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/entity/RelationEntity.java" />
+              <option name="updatedContent" value="package com.bds.relation.entity;&#10;&#10;import com.baomidou.mybatisplus.annotation.TableName;&#10;import lombok.Data;&#10;&#10;@Data&#10;@TableName(&quot;relations&quot;)&#10;public class RelationEntity {&#10;&#9;private String followerId;&#10;&#9;private String followeeId;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/mapper/RelationMapper.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/mapper/RelationMapper.java" />
+              <option name="updatedContent" value="package com.bds.relation.mapper;&#10;&#10;import com.baomidou.mybatisplus.core.mapper.BaseMapper;&#10;import com.bds.relation.entity.RelationEntity;&#10;import org.apache.ibatis.annotations.Mapper;&#10;&#10;@Mapper&#10;public interface RelationMapper extends BaseMapper&lt;RelationEntity&gt; {&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/service/RelationService.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/relation/service/RelationService.java" />
+              <option name="updatedContent" value="package com.bds.relation.service;&#10;&#10;import com.bds.relation.entity.RelationEntity;&#10;import org.springframework.stereotype.Service;&#10;&#10;import java.util.Collections;&#10;import java.util.List;&#10;&#10;@Service&#10;public class RelationService {&#10;&#9;public List&lt;RelationEntity&gt; listFollowers(String userId) {&#10;&#9;&#9;// TODO: implement follower list&#10;&#9;&#9;return Collections.emptyList();&#10;&#9;}&#10;&#10;&#9;public List&lt;RelationEntity&gt; listFollowees(String userId) {&#10;&#9;&#9;// TODO: implement followee list&#10;&#9;&#9;return Collections.emptyList();&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/controller/TweetController.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/controller/TweetController.java" />
+              <option name="updatedContent" value="package com.bds.tweet.controller;&#10;&#10;import com.bds.common.Result;&#10;import com.bds.tweet.dto.TweetQuery;&#10;import com.bds.tweet.entity.TweetEntity;&#10;import com.bds.tweet.service.TweetService;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;import java.util.List;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/api/tweets&quot;)&#10;public class TweetController {&#10;&#9;private final TweetService tweetService;&#10;&#10;&#9;public TweetController(TweetService tweetService) {&#10;&#9;&#9;this.tweetService = tweetService;&#10;&#9;}&#10;&#10;&#9;@PostMapping(&quot;/search&quot;)&#10;&#9;public Result&lt;List&lt;TweetEntity&gt;&gt; listTweets(@RequestBody TweetQuery query) {&#10;&#9;&#9;return Result.success(tweetService.listTweets(query));&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/dto/TweetQuery.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/dto/TweetQuery.java" />
+              <option name="updatedContent" value="package com.bds.tweet.dto;&#10;&#10;import com.bds.common.QueryPageParam;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class TweetQuery extends QueryPageParam {&#10;&#9;private String userId;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/entity/TweetEntity.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/entity/TweetEntity.java" />
+              <option name="updatedContent" value="package com.bds.tweet.entity;&#10;&#10;import com.baomidou.mybatisplus.annotation.TableId;&#10;import com.baomidou.mybatisplus.annotation.TableName;&#10;import lombok.Data;&#10;&#10;import java.time.LocalDateTime;&#10;&#10;@Data&#10;@TableName(&quot;tweets&quot;)&#10;public class TweetEntity {&#10;&#9;@TableId&#10;&#9;private String tweetId;&#10;&#9;private String userId;&#10;&#9;private LocalDateTime createdAt;&#10;&#9;private Integer repostsCount;&#10;&#9;private Integer attitudesCount;&#10;&#9;private String content;&#10;&#9;private Boolean isRetweet;&#10;&#9;private Boolean isLongText;&#10;&#9;private String rtOriginTweetId;&#10;&#9;private String rtOriginUserId;&#10;&#9;private String rtOriginContent;&#10;&#9;private Boolean rtOriginIsLongText;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/mapper/TweetMapper.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/mapper/TweetMapper.java" />
+              <option name="updatedContent" value="package com.bds.tweet.mapper;&#10;&#10;import com.baomidou.mybatisplus.core.mapper.BaseMapper;&#10;import com.bds.tweet.entity.TweetEntity;&#10;import org.apache.ibatis.annotations.Mapper;&#10;&#10;@Mapper&#10;public interface TweetMapper extends BaseMapper&lt;TweetEntity&gt; {&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/service/TweetService.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/tweet/service/TweetService.java" />
+              <option name="updatedContent" value="package com.bds.tweet.service;&#10;&#10;import com.bds.tweet.dto.TweetQuery;&#10;import com.bds.tweet.entity.TweetEntity;&#10;import org.springframework.stereotype.Service;&#10;&#10;import java.util.Collections;&#10;import java.util.List;&#10;&#10;@Service&#10;public class TweetService {&#10;&#9;public List&lt;TweetEntity&gt; listTweets(TweetQuery query) {&#10;&#9;&#9;// TODO: implement tweet paging by user&#10;&#9;&#9;return Collections.emptyList();&#10;&#9;}&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/user/controller/UserController.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/user/controller/UserController.java" />
+              <option name="updatedContent" value="package com.bds.user.controller;&#13;&#10;&#13;&#10;import com.bds.common.PageResult;&#13;&#10;import com.bds.common.Result;&#13;&#10;import com.bds.profile.dto.ActiveHourDTO;&#13;&#10;import com.bds.profile.dto.WordCloudDTO;&#13;&#10;import com.bds.profile.service.UserProfileService;&#13;&#10;import com.bds.user.dto.UserDetailVO;&#13;&#10;import com.bds.user.dto.UserListQuery;&#13;&#10;import com.bds.user.entity.UserEntity;&#13;&#10;import com.bds.user.service.UserService;&#13;&#10;import org.springframework.web.bind.annotation.*;&#13;&#10;&#13;&#10;import java.util.List;&#13;&#10;&#13;&#10;@RestController&#13;&#10;@RequestMapping(&quot;/api/users&quot;)&#13;&#10;public class UserController {&#13;&#10;&#9;private final UserService userService;&#13;&#10;&#9;private final UserProfileService userProfileService;&#13;&#10;&#13;&#10;&#9;public UserController(UserService userService, UserProfileService userProfileService) {&#13;&#10;&#9;&#9;this.userService = userService;&#13;&#10;&#9;&#9;this.userProfileService = userProfileService;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@PostMapping(&quot;/search&quot;)&#13;&#10;&#9;public Result&lt;PageResult&lt;UserEntity&gt;&gt; listUsers(@RequestBody UserListQuery query) {&#13;&#10;&#9;&#9;return Result.success(userService.listUsers(query));&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@GetMapping(&quot;/{id}&quot;)&#13;&#10;&#9;public Result&lt;UserDetailVO&gt; getUserDetail(@PathVariable(&quot;id&quot;) String userId) {&#13;&#10;&#9;&#9;return Result.success(userService.getUserDetail(userId));&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@GetMapping(&quot;/{id}/wordcloud&quot;)&#13;&#10;&#9;public Result&lt;List&lt;WordCloudDTO&gt;&gt; getWordCloud(@PathVariable(&quot;id&quot;) String userId) {&#13;&#10;&#9;&#9;return Result.success(userProfileService.getWordCloud(userId));&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;@GetMapping(&quot;/{id}/active-hours&quot;)&#13;&#10;&#9;public Result&lt;List&lt;ActiveHourDTO&gt;&gt; getActiveHours(@PathVariable(&quot;id&quot;) String userId) {&#13;&#10;&#9;&#9;return Result.success(userProfileService.getActiveHours(userId));&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/user/dto/UserListQuery.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/user/dto/UserListQuery.java" />
+              <option name="updatedContent" value="package com.bds.user.dto;&#10;&#10;import com.bds.common.QueryPageParam;&#10;import lombok.Data;&#10;&#10;@Data&#10;public class UserListQuery extends QueryPageParam {&#10;&#9;private String keyword;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/user/entity/UserEntity.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/user/entity/UserEntity.java" />
+              <option name="updatedContent" value="package com.bds.user.entity;&#10;&#10;import com.baomidou.mybatisplus.annotation.TableId;&#10;import com.baomidou.mybatisplus.annotation.TableName;&#10;import lombok.Data;&#10;&#10;@Data&#10;@TableName(&quot;users&quot;)&#10;public class UserEntity {&#10;&#9;@TableId&#10;&#9;private String userId;&#10;&#9;private String nickName;&#10;&#9;private String description;&#10;&#9;private Integer gender;&#10;&#9;private Long followersCount;&#10;&#9;private Integer followCount;&#10;&#9;private Integer statusesCount;&#10;&#9;private Boolean verified;&#10;&#9;private Integer mbrank;&#10;&#9;private Integer mbtype;&#10;&#9;private Integer originalCount;&#10;&#9;private Integer forwardCount;&#10;&#9;private Double malProb;&#10;&#9;private Boolean isMalicious;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/user/mapper/UserMapper.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/user/mapper/UserMapper.java" />
+              <option name="updatedContent" value="package com.bds.user.mapper;&#10;&#10;import com.baomidou.mybatisplus.core.mapper.BaseMapper;&#10;import com.bds.user.entity.UserEntity;&#10;import org.apache.ibatis.annotations.Mapper;&#10;&#10;@Mapper&#10;public interface UserMapper extends BaseMapper&lt;UserEntity&gt; {&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/bds/src/main/java/com/bds/user/service/UserService.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/bds/src/main/java/com/bds/user/service/UserService.java" />
+              <option name="updatedContent" value="package com.bds.user.service;&#10;&#10;import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;&#10;import com.baomidou.mybatisplus.extension.plugins.pagination.Page;&#10;import com.bds.common.PageResult;&#10;import com.bds.user.dto.UserDetailVO;&#10;import com.bds.user.dto.UserListQuery;&#10;import com.bds.user.entity.UserEntity;&#10;import com.bds.user.mapper.UserMapper;&#10;import org.springframework.http.HttpStatus;&#10;import org.springframework.stereotype.Service;&#10;import org.springframework.web.server.ResponseStatusException;&#10;&#10;import java.util.List;&#10;&#10;@Service&#10;public class UserService {&#10;&#9;private final UserMapper userMapper;&#10;&#10;&#9;public UserService(UserMapper userMapper) {&#10;&#9;&#9;this.userMapper = userMapper;&#10;&#9;}&#10;&#10;&#9;public PageResult&lt;UserEntity&gt; listUsers(UserListQuery query) {&#10;&#9;&#9;LambdaQueryWrapper&lt;UserEntity&gt; wrapper = new LambdaQueryWrapper&lt;&gt;();&#10;&#9;&#9;String keyword = query.getKeyword();&#10;&#9;&#9;if (keyword != null &amp;&amp; !keyword.isBlank()) {&#10;&#9;&#9;&#9;wrapper.and(q -&gt; q.like(UserEntity::getUserId, keyword)&#10;&#9;&#9;&#9;&#9;&#9;.or()&#10;&#9;&#9;&#9;&#9;&#9;.like(UserEntity::getNickName, keyword));&#10;&#9;&#9;}&#10;&#9;&#9;Page&lt;UserEntity&gt; page = new Page&lt;&gt;(query.getPageNum(), query.getPageSize());&#10;&#9;&#9;Page&lt;UserEntity&gt; result = userMapper.selectPage(page, wrapper);&#10;&#9;&#9;return new PageResult&lt;&gt;(result.getRecords(), result.getTotal(), query.getPageNum(), query.getPageSize());&#10;&#9;}&#10;&#10;&#9;public UserDetailVO getUserDetail(String userId) {&#10;&#9;&#9;UserEntity entity = userMapper.selectById(userId);&#10;&#9;&#9;if (entity == null) {&#10;&#9;&#9;&#9;throw new ResponseStatusException(HttpStatus.NOT_FOUND, &quot;User not found&quot;);&#10;&#9;&#9;}&#10;&#9;&#9;UserDetailVO vo = new UserDetailVO();&#10;&#9;&#9;vo.setUserId(entity.getUserId());&#10;&#9;&#9;vo.setNickName(entity.getNickName());&#10;&#9;&#9;vo.setDescription(entity.getDescription());&#10;&#9;&#9;vo.setGender(entity.getGender());&#10;&#9;&#9;vo.setFollowersCount(entity.getFollowersCount());&#10;&#9;&#9;vo.setFollowCount(entity.getFollowCount());&#10;&#9;&#9;vo.setStatusesCount(entity.getStatusesCount());&#10;&#9;&#9;vo.setVerified(entity.getVerified());&#10;&#9;&#9;vo.setMbrank(entity.getMbrank());&#10;&#9;&#9;vo.setMbtype(entity.getMbtype());&#10;&#9;&#9;vo.setOriginalCount(entity.getOriginalCount());&#10;&#9;&#9;vo.setForwardCount(entity.getForwardCount());&#10;&#9;&#9;vo.setMalProb(entity.getMalProb());&#10;&#9;&#9;vo.setIsMalicious(entity.getIsMalicious());&#10;&#9;&#9;return vo;&#10;&#9;}&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
