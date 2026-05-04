@@ -6,5 +6,6 @@
 			"path": "D:/Program Files/Java/jdk-17.0.15/jdk-17",
 			"default": true
 		}
-	]
+	],
+	"java.configuration.updateBuildConfiguration": "interactive"
 }

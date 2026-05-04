@@ -19,3 +19,4 @@ Frontend (Vue):
 - Auth uses username + password (hash + salt) with JWT planned.
 - CORS and MyBatis-Plus pagination are configured.
 
+26/05/04 存档
