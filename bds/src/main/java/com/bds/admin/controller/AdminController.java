@@ -1,9 +1,12 @@
 package com.bds.admin.controller;
 
+import com.bds.admin.dto.AuthUserAdminVO;
+import com.bds.admin.dto.AuthUserListQuery;
 import com.bds.admin.dto.UpdateAuthUserRoleRequest;
 import com.bds.admin.dto.UpdateAuthUserStatusRequest;
 import com.bds.admin.dto.UpdateUserLabelRequest;
 import com.bds.admin.service.AdminService;
+import com.bds.common.PageResult;
 import com.bds.common.Result;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,11 @@ public class AdminController {
 
 	public AdminController(AdminService adminService) {
 		this.adminService = adminService;
+	}
+
+	@PostMapping("/auth-users/search")
+	public Result<PageResult<AuthUserAdminVO>> searchAuthUsers(@RequestBody AuthUserListQuery query) {
+		return Result.success(adminService.listAuthUsers(query));
 	}
 
 	@PutMapping("/users/{id}/label")

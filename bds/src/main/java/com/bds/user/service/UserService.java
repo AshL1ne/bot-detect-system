@@ -11,8 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-
 @Service
 public class UserService {
 	private final UserMapper userMapper;
@@ -28,6 +26,12 @@ public class UserService {
 			wrapper.and(q -> q.like(UserEntity::getUserId, keyword)
 					.or()
 					.like(UserEntity::getNickName, keyword));
+		}
+		if (query.getVerified() != null) {
+			wrapper.eq(UserEntity::getVerified, query.getVerified());
+		}
+		if (query.getIsMalicious() != null) {
+			wrapper.eq(UserEntity::getIsMalicious, query.getIsMalicious());
 		}
 		Page<UserEntity> page = new Page<>(query.getPageNum(), query.getPageSize());
 		Page<UserEntity> result = userMapper.selectPage(page, wrapper);

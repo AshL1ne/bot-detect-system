@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 public class TokenResponse {
 	private String token;
 	private String tokenType;
+	/** Login / register 返回，便于前端写入路由守卫所需角色 */
+	private String role;
 }
 

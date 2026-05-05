@@ -1,33 +1,41 @@
 <template>
   <section class="page">
-    <h1>User Detail</h1>
-    <p v-if="loading">Loading...</p>
+    <h1>用户详情</h1>
+    <p v-if="loading">加载中…</p>
     <p v-else-if="error" class="error">{{ error }}</p>
     <div v-else>
       <el-card class="section" v-if="detail">
         <template #header>
-          <span>Profile</span>
+          <span>资料</span>
         </template>
         <el-descriptions :column="2" border>
-          <el-descriptions-item label="User ID">{{ detail.userId }}</el-descriptions-item>
-          <el-descriptions-item label="Nickname">{{ detail.nickName }}</el-descriptions-item>
-          <el-descriptions-item label="Followers">{{ detail.followersCount }}</el-descriptions-item>
-          <el-descriptions-item label="Following">{{ detail.followCount }}</el-descriptions-item>
-          <el-descriptions-item label="Statuses">{{ detail.statusesCount }}</el-descriptions-item>
-          <el-descriptions-item label="Verified">
+          <el-descriptions-item label="用户 ID">{{ detail.userId }}</el-descriptions-item>
+          <el-descriptions-item label="昵称">{{ detail.nickName }}</el-descriptions-item>
+          <el-descriptions-item label="粉丝">
+            <router-link :to="`/users/${detail.userId}/followers`" class="stat-link">
+              {{ detail.followersCount }}
+            </router-link>
+          </el-descriptions-item>
+          <el-descriptions-item label="关注">
+            <router-link :to="`/users/${detail.userId}/following`" class="stat-link">
+              {{ detail.followCount }}
+            </router-link>
+          </el-descriptions-item>
+          <el-descriptions-item label="微博数">{{ detail.statusesCount }}</el-descriptions-item>
+          <el-descriptions-item label="是否认证">
             <el-tag :type="detail.verified ? 'primary' : 'info'" effect="plain">
-              {{ detail.verified ? 'Verified' : 'Unverified' }}
+              {{ detail.verified ? '是' : '否' }}
             </el-tag>
           </el-descriptions-item>
-          <el-descriptions-item label="Original">{{ detail.originalCount }}</el-descriptions-item>
-          <el-descriptions-item label="Forward">{{ detail.forwardCount }}</el-descriptions-item>
-          <el-descriptions-item label="Mal Prob">{{ detail.malProb }}</el-descriptions-item>
-          <el-descriptions-item label="Malicious">
+          <el-descriptions-item label="原创">{{ detail.originalCount }}</el-descriptions-item>
+          <el-descriptions-item label="转发">{{ detail.forwardCount }}</el-descriptions-item>
+          <el-descriptions-item label="恶意概率">{{ detail.malProb }}</el-descriptions-item>
+          <el-descriptions-item label="是否恶意">
             <el-tag :type="detail.isMalicious ? 'danger' : 'success'" effect="plain">
-              {{ detail.isMalicious ? 'Malicious' : 'Normal' }}
+              {{ detail.isMalicious ? '是' : '否' }}
             </el-tag>
           </el-descriptions-item>
-          <el-descriptions-item label="Description" :span="2">{{ detail.description }}</el-descriptions-item>
+          <el-descriptions-item label="简介" :span="2">{{ detail.description }}</el-descriptions-item>
         </el-descriptions>
       </el-card>
 
@@ -73,7 +81,7 @@
               <div class="tweet-body">
                 <p v-if="t.content" class="tweet-text">{{ t.content }}</p>
                 <div v-if="isRetweetPost(t)" class="retweet-box">
-                  <span class="retweet-at">@{{ t.rtOriginUserId || 'unknown' }}</span>
+                  <span class="retweet-at">@{{ t.rtOriginUserId || '未知' }}</span>
                   <span class="retweet-text">{{ t.rtOriginContent || '' }}</span>
                 </div>
               </div>
@@ -115,7 +123,6 @@ import * as echarts from 'echarts'
 import 'echarts-wordcloud'
 import { getUserActiveHours, getUserDetail, getUserWordCloud } from '../api/users'
 import { searchTweets } from '../api/tweets'
-
 const WORD_PALETTE = ['#2dd4bf', '#4ade80', '#c084fc', '#fbbf24', '#38bdf8', '#34d399', '#a78bfa', '#f472b6']
 
 function stableColorForWord(word) {
@@ -291,7 +298,7 @@ export default {
         const t = Number(row.totalCount) || 0
         peak = Math.max(peak, o, r, t)
       }
-      return Math.max(20, Math.ceil(peak / 10) * 10)
+      return Math.max(15, Math.ceil(peak / 10) * 10)
     },
     activityYInterval(yMax) {
       return yMax <= 20 ? 5 : 10
@@ -440,7 +447,7 @@ export default {
     async loadAll() {
       const userId = this.id || this.$route.params.id
       if (!userId) {
-        this.error = 'Missing user id.'
+        this.error = '缺少用户 ID。'
         return
       }
       this.loading = true
@@ -457,7 +464,7 @@ export default {
         this.activeHours = hoursRes.data.data || []
         await this.loadTweets(userId)
       } catch (err) {
-        this.error = 'Failed to load user detail.'
+        this.error = '加载用户详情失败。'
         this.detail = null
         this.wordCloud = []
         this.activeHours = []
@@ -524,6 +531,16 @@ export default {
 </script>
 
 <style scoped>
+.stat-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stat-link:hover {
+  text-decoration: underline;
+}
+
 .page {
   padding: 24px;
 }

@@ -1,7 +1,7 @@
 package com.bds.relation.controller;
 
 import com.bds.common.Result;
-import com.bds.relation.entity.RelationEntity;
+import com.bds.relation.dto.RelationUserDTO;
 import com.bds.relation.service.RelationService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +17,12 @@ public class RelationController {
 	}
 
 	@GetMapping("/{id}/followers")
-	public Result<List<RelationEntity>> listFollowers(@PathVariable("id") String userId) {
+	public Result<List<RelationUserDTO>> listFollowers(@PathVariable("id") String userId) {
 		return Result.success(relationService.listFollowers(userId));
 	}
 
 	@GetMapping("/{id}/followees")
-	public Result<List<RelationEntity>> listFollowees(@PathVariable("id") String userId) {
+	public Result<List<RelationUserDTO>> listFollowees(@PathVariable("id") String userId) {
 		return Result.success(relationService.listFollowees(userId));
 	}
 }

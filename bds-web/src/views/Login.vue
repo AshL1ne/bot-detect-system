@@ -2,23 +2,28 @@
   <section class="page">
     <el-card class="card">
       <template #header>
-        <span>Login</span>
+        <span>登录</span>
       </template>
-      <el-form :model="form" label-width="90px">
-        <el-form-item label="Username">
-          <el-input v-model="form.username" placeholder="Enter username" autocomplete="username" />
+      <el-form :model="form" label-width="88px">
+        <el-form-item label="用户名">
+          <el-input v-model="form.username" placeholder="请输入用户名" autocomplete="username" />
         </el-form-item>
-        <el-form-item label="Password">
-          <el-input v-model="form.password" type="password" placeholder="Enter password" autocomplete="current-password" />
+        <el-form-item label="密码">
+          <el-input
+            v-model="form.password"
+            type="password"
+            placeholder="请输入密码"
+            autocomplete="current-password"
+          />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" :loading="loading" @click="handleLogin">Login</el-button>
+          <el-button type="primary" :loading="loading" @click="handleLogin">登录</el-button>
         </el-form-item>
       </el-form>
       <p v-if="error" class="error">{{ error }}</p>
       <p class="hint">
-        No account?
-        <router-link to="/register">Register</router-link>
+        没有账号？
+        <router-link to="/register">去注册</router-link>
       </p>
     </el-card>
   </section>
@@ -42,23 +47,32 @@ export default {
   methods: {
     async handleLogin() {
       if (!this.form.username || !this.form.password) {
-        this.error = 'Please enter username and password.'
+        this.error = '请输入用户名和密码。'
         return
       }
       this.loading = true
       this.error = ''
       try {
         const response = await login(this.form)
-        const token = response.data.data?.token
+        const data = response.data.data || {}
+        const token = data.token
         if (!token) {
-          this.error = 'Login failed. Token missing.'
+          this.error = '登录失败：未返回令牌。'
           return
         }
         localStorage.setItem('token', token)
+        if (data.role) {
+          localStorage.setItem('authRole', data.role)
+        }
         window.dispatchEvent(new Event('storage'))
         this.$router.push('/users')
       } catch (err) {
-        this.error = 'Login failed. Please check your credentials.'
+        const status = err.response?.status
+        if (status === 403) {
+          this.error = '该账号已被禁用，请联系管理员。'
+        } else {
+          this.error = '登录失败，请检查用户名或密码。'
+        }
       } finally {
         this.loading = false
       }

@@ -31,14 +31,17 @@ public class AuthService {
 	public TokenResponse login(LoginRequest request) {
 		AuthUserEntity user = authUserMapper.selectOne(new LambdaQueryWrapper<AuthUserEntity>()
 				.eq(AuthUserEntity::getUsername, request.getUsername()));
-		if (user == null || user.getStatus() != null && user.getStatus() == 0) {
+		if (user == null) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials");
 		}
 		if (!passwordService.matches(request.getPassword(), user.getPasswordSalt(), user.getPasswordHash())) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials");
 		}
+		if (user.getStatus() != null && user.getStatus() == 0) {
+			throw new ResponseStatusException(HttpStatus.FORBIDDEN, "账号已禁用");
+		}
 		String token = jwtService.issueToken(user);
-		return new TokenResponse(token, "Bearer");
+		return new TokenResponse(token, "Bearer", user.getRole());
 	}
 
 	public TokenResponse register(RegisterRequest request) {
@@ -60,7 +63,7 @@ public class AuthService {
 		authUserMapper.insert(user);
 
 		String token = jwtService.issueToken(user);
-		return new TokenResponse(token, "Bearer");
+		return new TokenResponse(token, "Bearer", user.getRole());
 	}
 
 	public AuthUserProfileResponse getCurrentUserProfile() {

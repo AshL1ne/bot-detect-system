@@ -2,23 +2,28 @@
   <section class="page">
     <el-card class="card">
       <template #header>
-        <span>Register</span>
+        <span>注册</span>
       </template>
-      <el-form :model="form" label-width="90px">
-        <el-form-item label="Username">
-          <el-input v-model="form.username" placeholder="Choose username" autocomplete="username" />
+      <el-form :model="form" label-width="88px">
+        <el-form-item label="用户名">
+          <el-input v-model="form.username" placeholder="设置用户名" autocomplete="username" />
         </el-form-item>
-        <el-form-item label="Password">
-          <el-input v-model="form.password" type="password" placeholder="Choose password" autocomplete="new-password" />
+        <el-form-item label="密码">
+          <el-input
+            v-model="form.password"
+            type="password"
+            placeholder="设置密码"
+            autocomplete="new-password"
+          />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" :loading="loading" @click="handleRegister">Register</el-button>
+          <el-button type="primary" :loading="loading" @click="handleRegister">注册</el-button>
         </el-form-item>
       </el-form>
       <p v-if="error" class="error">{{ error }}</p>
       <p class="hint">
-        Already have an account?
-        <router-link to="/login">Login</router-link>
+        已有账号？
+        <router-link to="/login">去登录</router-link>
       </p>
     </el-card>
   </section>
@@ -42,7 +47,7 @@ export default {
   methods: {
     async handleRegister() {
       if (!this.form.username || !this.form.password) {
-        this.error = 'Please enter username and password.'
+        this.error = '请输入用户名和密码。'
         return
       }
       this.loading = true
@@ -51,7 +56,7 @@ export default {
         await register(this.form)
         this.$router.push('/login')
       } catch (err) {
-        this.error = 'Registration failed. Try another username.'
+        this.error = '注册失败，请更换用户名重试。'
       } finally {
         this.loading = false
       }

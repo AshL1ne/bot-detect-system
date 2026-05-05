@@ -1,6 +1,19 @@
 import http from './http'
 
-export function updateUserLabel(userId, payload) {
-  return http.put(`/admin/users/${userId}/label`, payload)
+export function searchAuthUsers(payload) {
+  return http.post('/admin/auth-users/search', payload)
 }
+
+export function updateAuthUserRole(userId, payload) {
+  return http.put(`/admin/auth-users/${encodeURIComponent(userId)}/role`, payload)
+}
+
+export function updateAuthUserStatus(userId, payload) {
+  return http.put(`/admin/auth-users/${encodeURIComponent(userId)}/status`, payload)
+}
+
+export function updateUserLabel(userId, payload) {
+  return http.put(`/admin/users/${encodeURIComponent(userId)}/label`, payload)
+}
+
 

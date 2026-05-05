@@ -1,15 +1,15 @@
 <template>
   <section class="page">
-    <h1>Current User</h1>
-    <p v-if="loading">Loading...</p>
+    <h1>我的账户</h1>
+    <p v-if="loading">加载中…</p>
     <p v-else-if="error">{{ error }}</p>
     <div v-else-if="profile" class="card">
-      <div class="row"><span class="label">User ID:</span>{{ profile.id }}</div>
-      <div class="row"><span class="label">Username:</span>{{ profile.username }}</div>
-      <div class="row"><span class="label">Role:</span>{{ profile.role }}</div>
-      <div class="row"><span class="label">Status:</span>{{ profile.status }}</div>
+      <div class="row"><span class="label">账户 ID</span>{{ profile.id }}</div>
+      <div class="row"><span class="label">用户名</span>{{ profile.username }}</div>
+      <div class="row"><span class="label">角色</span>{{ roleText }}</div>
+      <div class="row"><span class="label">状态</span>{{ statusText }}</div>
     </div>
-    <p v-else>No profile data.</p>
+    <p v-else>暂无账户信息。</p>
   </section>
 </template>
 
@@ -25,6 +25,20 @@ export default {
       profile: null
     }
   },
+  computed: {
+    roleText() {
+      const r = this.profile?.role
+      if (r === 'ADMIN') return '管理员'
+      if (r === 'USER') return '普通用户'
+      return r || '—'
+    },
+    statusText() {
+      const s = this.profile?.status
+      if (s === 1) return '启用'
+      if (s === 0) return '禁用'
+      return s != null ? String(s) : '—'
+    }
+  },
   mounted() {
     this.loadProfile()
   },
@@ -37,7 +51,7 @@ export default {
         this.profile = response.data.data
       } catch (err) {
         this.profile = null
-        this.error = 'Failed to load profile. Please login again.'
+        this.error = '加载账户信息失败，请重新登录。'
       } finally {
         this.loading = false
       }
@@ -67,7 +81,7 @@ export default {
 
 .label {
   width: 90px;
+  flex-shrink: 0;
   color: #6b7280;
 }
 </style>
-
