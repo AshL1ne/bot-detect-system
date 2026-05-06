@@ -64,11 +64,34 @@
       </el-table-column>
       <el-table-column prop="statusesCount" label="微博数" width="110" />
       <el-table-column prop="malProb" label="恶意概率" width="110" />
-      <el-table-column label="是否恶意" width="120">
+      <el-table-column label="是否恶意" :min-width="isAdmin ? 168 : 120">
         <template #default="scope">
-          <el-tag :type="scope.row.isMalicious ? 'danger' : 'success'" effect="plain">
-            {{ scope.row.isMalicious ? '是' : '否' }}
-          </el-tag>
+          <template v-if="isAdmin">
+            <div class="mal-admin-cell">
+              <el-switch
+                :model-value="!!scope.row.isMalicious"
+                inline-prompt
+                active-text="是"
+                inactive-text="否"
+                @change="(v) => onMaliciousDraftChange(scope.row, v)"
+              />
+              <el-button
+                type="primary"
+                link
+                size="small"
+                :disabled="!isMaliciousRowDirty(scope.row)"
+                :loading="!!savingMaliciousRow[scope.row.userId]"
+                @click="saveMaliciousRow(scope.row)"
+              >
+                保存
+              </el-button>
+            </div>
+          </template>
+          <template v-else>
+            <el-tag :type="scope.row.isMalicious ? 'danger' : 'success'" effect="plain">
+              {{ scope.row.isMalicious ? '是' : '否' }}
+            </el-tag>
+          </template>
         </template>
       </el-table-column>
       <el-table-column label="是否认证" width="120">
@@ -96,12 +119,16 @@
 </template>
 
 <script>
+import { me } from '../api/auth'
+import { updateUserLabel } from '../api/admin'
 import { searchUsers } from '../api/users'
 
 export default {
   name: 'UserList',
   data() {
     return {
+      currentRole: '',
+      savingMaliciousRow: {},
       filterVerified: undefined,
       filterMalicious: undefined,
       keywordDraft: '',
@@ -115,10 +142,50 @@ export default {
       error: ''
     }
   },
+  computed: {
+    isAdmin() {
+      return this.currentRole === 'ADMIN'
+    }
+  },
   mounted() {
+    this.loadRole()
     this.fetchUsers()
   },
+  activated() {
+    this.loadRole()
+  },
   methods: {
+    async loadRole() {
+      try {
+        const res = await me()
+        this.currentRole = res.data.data?.role || ''
+      } catch {
+        this.currentRole = ''
+      }
+    },
+    onMaliciousDraftChange(row, value) {
+      row.isMalicious = value
+    },
+    isMaliciousRowDirty(row) {
+      return !!row.isMalicious !== !!row._malBaseline
+    },
+    async saveMaliciousRow(row) {
+      if (!this.isMaliciousRowDirty(row)) return
+      const id = row.userId
+      this.savingMaliciousRow = { ...this.savingMaliciousRow, [id]: true }
+      try {
+        await updateUserLabel(id, { isMalicious: !!row.isMalicious })
+        row._malBaseline = !!row.isMalicious
+        this.$message.success('已保存')
+      } catch (e) {
+        const msg = e.response?.data?.message
+        this.$message.error(msg || '保存失败')
+      } finally {
+        const next = { ...this.savingMaliciousRow }
+        delete next[id]
+        this.savingMaliciousRow = next
+      }
+    },
     /** Tag filters: own lifecycle; drops previously applied keyword until Search again */
     onFilterChange() {
       this.appliedKeyword = ''
@@ -154,7 +221,11 @@ export default {
       try {
         const response = await searchUsers(this.buildPayload())
         const data = response.data.data || {}
-        this.records = data.records || []
+        const rows = data.records || []
+        this.records = rows.map((r) => ({
+          ...r,
+          _malBaseline: !!r.isMalicious
+        }))
         this.total = data.total || 0
       } catch (err) {
         this.error = '加载用户列表失败。'
@@ -216,5 +287,12 @@ export default {
 
 .link:hover {
   text-decoration: underline;
+}
+
+.mal-admin-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 </style>

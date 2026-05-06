@@ -12,6 +12,10 @@ export function updateAuthUserStatus(userId, payload) {
   return http.put(`/admin/auth-users/${encodeURIComponent(userId)}/status`, payload)
 }
 
+export function deleteAuthUser(userId) {
+  return http.delete(`/admin/auth-users/${encodeURIComponent(userId)}`)
+}
+
 export function updateUserLabel(userId, payload) {
   return http.put(`/admin/users/${encodeURIComponent(userId)}/label`, payload)
 }

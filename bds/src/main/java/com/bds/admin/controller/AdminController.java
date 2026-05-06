@@ -47,4 +47,10 @@ public class AdminController {
 		adminService.updateAuthUserStatus(request);
 		return Result.success(null);
 	}
+
+	@DeleteMapping("/auth-users/{id}")
+	public Result<Void> deleteAuthUser(@PathVariable("id") String userId) {
+		adminService.deleteAuthUser(userId);
+		return Result.success(null);
+	}
 }

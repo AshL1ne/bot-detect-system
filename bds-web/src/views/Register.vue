@@ -14,6 +14,16 @@
             type="password"
             placeholder="设置密码"
             autocomplete="new-password"
+            show-password
+          />
+        </el-form-item>
+        <el-form-item label="确认密码">
+          <el-input
+            v-model="form.confirmPassword"
+            type="password"
+            placeholder="请再次输入密码"
+            autocomplete="new-password"
+            show-password
           />
         </el-form-item>
         <el-form-item>
@@ -38,7 +48,8 @@ export default {
     return {
       form: {
         username: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
       },
       loading: false,
       error: ''
@@ -46,14 +57,21 @@ export default {
   },
   methods: {
     async handleRegister() {
-      if (!this.form.username || !this.form.password) {
-        this.error = '请输入用户名和密码。'
+      if (!this.form.username || !this.form.password || !this.form.confirmPassword) {
+        this.error = '请填写用户名、密码并确认密码。'
+        return
+      }
+      if (this.form.password !== this.form.confirmPassword) {
+        this.error = '两次输入的密码不一致。'
         return
       }
       this.loading = true
       this.error = ''
       try {
-        await register(this.form)
+        await register({
+          username: this.form.username,
+          password: this.form.password
+        })
         this.$router.push('/login')
       } catch (err) {
         this.error = '注册失败，请更换用户名重试。'

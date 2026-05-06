@@ -111,6 +111,25 @@ public class AdminService {
 		authUserMapper.updateById(update);
 	}
 
+	public void deleteAuthUser(String userId) {
+		userId = requireUserId(userId);
+		AuthUserEntity existing = authUserMapper.selectById(userId);
+		if (existing == null) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "账户不存在");
+		}
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal principal) {
+			if (userId.equals(principal.userId())) {
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "不能删除自己的账号");
+			}
+		}
+		String role = existing.getRole() == null ? "" : existing.getRole().trim().toUpperCase();
+		if (!"USER".equals(role)) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "仅可删除普通用户账号");
+		}
+		authUserMapper.deleteById(userId);
+	}
+
 	private String requireUserId(String userId) {
 		if (userId == null || userId.isBlank()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "userId is required");
