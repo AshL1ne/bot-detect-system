@@ -37,11 +37,14 @@ public class JwtService {
 		return Jwts.builder()
 				.issuer(issuer)
 				.subject(user.getId())
+				//payload
 				.claim("username", user.getUsername())
 				.claim("role", user.getRole())
 				.issuedAt(Date.from(now))
 				.expiration(Date.from(exp))
+				//signature
 				.signWith(signingKey())
+				//拼接
 				.compact();
 	}
 

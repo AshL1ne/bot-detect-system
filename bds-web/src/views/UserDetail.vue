@@ -44,8 +44,8 @@
           <span>词云</span>
         </template>
         <div class="word-cloud-wrap">
-          <div v-show="wordCloud.length" ref="wordCloudEl" class="word-cloud-el" />
-          <el-empty v-show="!wordCloud.length" description="暂无词云数据" />
+          <div v-if="wordCloud.length" ref="wordCloudEl" class="word-cloud-el" />
+          <el-empty v-else description="暂无词云数据" />
         </div>
       </el-card>
 
@@ -159,7 +159,10 @@ export default {
       activityOriginalRetweetChart: null,
       activityTotalChart: null,
       resizeTimer: null,
-      resizeRaf: null
+      resizeRaf: null,
+      /** 递增后，此前排队的 whenChartContainersSized 回调一律放弃，避免 dispose 风暴 */
+      chartLayoutGen: 0,
+      refreshChartsDebounceTimer: null
     }
   },
   computed: {
@@ -179,6 +182,10 @@ export default {
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.onWindowResize)
+    if (this.refreshChartsDebounceTimer) {
+      clearTimeout(this.refreshChartsDebounceTimer)
+      this.refreshChartsDebounceTimer = null
+    }
     if (this.resizeTimer) {
       clearTimeout(this.resizeTimer)
       this.resizeTimer = null
@@ -200,41 +207,173 @@ export default {
       this.resizeTimer = setTimeout(() => {
         if (this.resizeRaf) cancelAnimationFrame(this.resizeRaf)
         this.resizeRaf = requestAnimationFrame(() => {
-          this.wordCloudChart?.resize()
-          this.activityOriginalRetweetChart?.resize()
-          this.activityTotalChart?.resize()
+          const wc = this.safeResize(this.wordCloudChart)
+          const a1 = this.safeResize(this.activityOriginalRetweetChart)
+          const a2 = this.safeResize(this.activityTotalChart)
+          if (!wc || !a1 || !a2) {
+            this.refreshCharts()
+          }
         })
       }, 120)
     },
     disposeCharts() {
+      this.chartLayoutGen += 1
       if (this.wordCloudChart) {
-        this.wordCloudChart.dispose()
+        try {
+          if (!this.wordCloudChart.isDisposed?.()) {
+            this.wordCloudChart.dispose()
+          }
+        } catch (_) {
+          /* ignore */
+        }
         this.wordCloudChart = null
       }
       if (this.activityOriginalRetweetChart) {
-        this.activityOriginalRetweetChart.dispose()
+        try {
+          if (!this.activityOriginalRetweetChart.isDisposed?.()) {
+            this.activityOriginalRetweetChart.dispose()
+          }
+        } catch (_) {
+          /* ignore */
+        }
         this.activityOriginalRetweetChart = null
       }
       if (this.activityTotalChart) {
-        this.activityTotalChart.dispose()
+        try {
+          if (!this.activityTotalChart.isDisposed?.()) {
+            this.activityTotalChart.dispose()
+          }
+        } catch (_) {
+          /* ignore */
+        }
         this.activityTotalChart = null
       }
     },
-    refreshCharts() {
-      this.$nextTick(() => {
-        this.initWordCloudChart()
-        this.initActivityCharts()
-      })
+    /** 已在 dispose 的实例上调用 resize 会触发 ECharts 红色告警风暴 */
+    safeResize(chart) {
+      if (!chart) return true
+      if (typeof chart.isDisposed === 'function' && chart.isDisposed()) {
+        return false
+      }
+      try {
+        chart.resize()
+        return true
+      } catch (_) {
+        return false
+      }
     },
-    initWordCloudChart() {
-      const el = this.$refs.wordCloudEl
-      if (!el) return
-      if (!this.wordCloud.length) {
-        this.wordCloudChart?.clear()
+    /** DOM 随 v-if 重建后，echarts 实例必须挂在当前 ref 对应节点上，否则会 coordinateSystem 为空、LineView 报错 */
+    resolveChart(dom, key) {
+      if (!dom) return null
+      const onDom = echarts.getInstanceByDom(dom)
+      let held = this[key]
+      if (held && typeof held.isDisposed === 'function' && held.isDisposed()) {
+        this[key] = null
+        held = null
+      }
+      if (held && held !== onDom) {
+        try {
+          if (typeof held.isDisposed !== 'function' || !held.isDisposed()) {
+            held.dispose()
+          }
+        } catch (_) {
+          /* ignore */
+        }
+        this[key] = null
+      }
+      if (!this[key]) {
+        const reuse = onDom && (typeof onDom.isDisposed !== 'function' || !onDom.isDisposed()) ? onDom : null
+        this[key] = reuse || echarts.init(dom)
+      }
+      return this[key]
+    },
+    /** 避免在 display:none 或布局未铺开（宽高为 0）时 init，容易导致缩放后整块空白 */
+    whenChartContainersSized(elements, callback, attempt = 0, layoutGen = null) {
+      const gen = layoutGen !== null && layoutGen !== undefined ? layoutGen : this.chartLayoutGen
+      if (gen !== this.chartLayoutGen) return
+      const list = elements.filter(Boolean)
+      if (!list.length) return
+      const ok = list.every((el) => el.offsetWidth >= 4 && el.offsetHeight >= 4)
+      if (ok) {
+        if (gen !== this.chartLayoutGen) return
+        callback()
         return
       }
-      this.wordCloudChart =
-        this.wordCloudChart || echarts.getInstanceByDom(el) || echarts.init(el)
+      if (attempt < 48) {
+        requestAnimationFrame(() =>
+          this.whenChartContainersSized(elements, callback, attempt + 1, layoutGen)
+        )
+      }
+    },
+    refreshCharts() {
+      if (this.refreshChartsDebounceTimer) {
+        clearTimeout(this.refreshChartsDebounceTimer)
+      }
+      this.refreshChartsDebounceTimer = setTimeout(() => {
+        this.refreshChartsDebounceTimer = null
+        this.chartLayoutGen += 1
+        const gen = this.chartLayoutGen
+        this.$nextTick(() => {
+          requestAnimationFrame(() => {
+            if (gen !== this.chartLayoutGen) return
+            this.initWordCloudChart(gen)
+            this.initActivityCharts(gen)
+          })
+        })
+      }, 100)
+    },
+    applyWordCloudChart(el, option, layoutGen) {
+      if (layoutGen !== undefined && layoutGen !== this.chartLayoutGen) return
+      let chart = this.resolveChart(el, 'wordCloudChart')
+      if (!chart) return
+      try {
+        chart.setOption(option, { notMerge: true })
+      } catch (_) {
+        try {
+          if (!chart.isDisposed?.()) {
+            chart.dispose()
+          }
+        } catch (_e) {
+          /* ignore */
+        }
+        this.wordCloudChart = null
+        const stray = echarts.getInstanceByDom(el)
+        if (stray && (!stray.isDisposed || !stray.isDisposed())) {
+          try {
+            stray.dispose()
+          } catch (_e2) {
+            /* ignore */
+          }
+        }
+        if (layoutGen !== undefined && layoutGen !== this.chartLayoutGen) return
+        chart = this.resolveChart(el, 'wordCloudChart')
+        if (chart) {
+          try {
+            chart.setOption(option, { notMerge: true })
+          } catch (_e3) {
+            /* ignore */
+          }
+        }
+      }
+    },
+    initWordCloudChart(layoutGen) {
+      const gen = layoutGen !== undefined ? layoutGen : this.chartLayoutGen
+      if (gen !== this.chartLayoutGen) return
+      if (!this.wordCloud.length) {
+        if (this.wordCloudChart) {
+          try {
+            if (!this.wordCloudChart.isDisposed?.()) {
+              this.wordCloudChart.dispose()
+            }
+          } catch (_) {
+            /* ignore */
+          }
+          this.wordCloudChart = null
+        }
+        return
+      }
+      const el = this.$refs.wordCloudEl
+      if (!el) return
       const ranked = [...this.wordCloud].sort(
         (a, b) => (Number(b.count) || 0) - (Number(a.count) || 0)
       )
@@ -285,7 +424,7 @@ export default {
           }
         ]
       }
-      this.wordCloudChart.setOption(option, { notMerge: true })
+      this.whenChartContainersSized([el], () => this.applyWordCloudChart(el, option, gen), 0, gen)
     },
     activityPeriodLabels() {
       return Array.from({ length: 12 }, (_, i) => `${i * 2}–${i * 2 + 2}时`)
@@ -312,6 +451,8 @@ export default {
         id: name,
         name,
         type: 'line',
+        xAxisIndex: 0,
+        yAxisIndex: 0,
         smooth: true,
         symbol: 'circle',
         symbolSize: 12,
@@ -378,7 +519,44 @@ export default {
         }
       }
     },
-    initActivityCharts() {
+    /** notMerge 已全量替换配置，不要用 clear()，否则 setOption 抛错时画布会一直空白 */
+    applyActivityLineChart(dom, refKey, opt, layoutGen) {
+      if (layoutGen !== undefined && layoutGen !== this.chartLayoutGen) return
+      let chart = this.resolveChart(dom, refKey)
+      if (!chart) return
+      try {
+        chart.setOption(opt, { notMerge: true })
+      } catch (_) {
+        try {
+          if (!chart.isDisposed?.()) {
+            chart.dispose()
+          }
+        } catch (_e) {
+          /* ignore */
+        }
+        this[refKey] = null
+        const stray = echarts.getInstanceByDom(dom)
+        if (stray && (!stray.isDisposed || !stray.isDisposed())) {
+          try {
+            stray.dispose()
+          } catch (_e2) {
+            /* ignore */
+          }
+        }
+        if (layoutGen !== undefined && layoutGen !== this.chartLayoutGen) return
+        chart = this.resolveChart(dom, refKey)
+        if (chart) {
+          try {
+            chart.setOption(opt, { notMerge: true })
+          } catch (_e3) {
+            /* ignore */
+          }
+        }
+      }
+    },
+    initActivityCharts(layoutGen) {
+      const gen = layoutGen !== undefined ? layoutGen : this.chartLayoutGen
+      if (gen !== this.chartLayoutGen) return
       const splitEl = this.$refs.activityOriginalRetweetEl
       const totalEl = this.$refs.activityTotalEl
       if (!splitEl || !totalEl) return
@@ -399,50 +577,40 @@ export default {
         this.lineSeriesCommon('#22c55e', originals, '原创微博'),
         this.lineSeriesCommon('#eab308', retweets, '转发微博')
       ]
-
-      this.activityOriginalRetweetChart =
-        this.activityOriginalRetweetChart ||
-        echarts.getInstanceByDom(splitEl) ||
-        echarts.init(splitEl)
-      this.activityOriginalRetweetChart.setOption(
-        {
-          backgroundColor: 'transparent',
-          tooltip: this.pointTooltip(labels),
-          legend: {
-            data: splitSeries.map((s) => s.name),
-            bottom: 4,
-            padding: [4, 8, 0, 8],
-            textStyle: { color: '#334155' },
-            selectedMode: false
-          },
-          ...this.activityChartAxes(labels, yMax, yInterval),
-          series: splitSeries
-        },
-        { notMerge: true }
-      )
-
       const totalSeries = [this.lineSeriesCommon('#2563eb', totals, '全部微博')]
 
-      this.activityTotalChart =
-        this.activityTotalChart ||
-        echarts.getInstanceByDom(totalEl) ||
-        echarts.init(totalEl)
-      this.activityTotalChart.setOption(
-        {
-          backgroundColor: 'transparent',
-          tooltip: this.pointTooltip(labels),
-          legend: {
-            data: totalSeries.map((s) => s.name),
-            bottom: 4,
-            padding: [4, 8, 0, 8],
-            textStyle: { color: '#334155' },
-            selectedMode: false
-          },
-          ...this.activityChartAxes(labels, yMax, yInterval),
-          series: totalSeries
+      const splitOpt = {
+        backgroundColor: 'transparent',
+        tooltip: this.pointTooltip(labels),
+        legend: {
+          data: splitSeries.map((s) => s.name),
+          bottom: 4,
+          padding: [4, 8, 0, 8],
+          textStyle: { color: '#334155' },
+          selectedMode: false
         },
-        { notMerge: true }
-      )
+        ...this.activityChartAxes(labels, yMax, yInterval),
+        series: splitSeries
+      }
+      const totalOpt = {
+        backgroundColor: 'transparent',
+        tooltip: this.pointTooltip(labels),
+        legend: {
+          data: totalSeries.map((s) => s.name),
+          bottom: 4,
+          padding: [4, 8, 0, 8],
+          textStyle: { color: '#334155' },
+          selectedMode: false
+        },
+        ...this.activityChartAxes(labels, yMax, yInterval),
+        series: totalSeries
+      }
+
+      this.whenChartContainersSized([splitEl, totalEl], () => {
+        if (gen !== this.chartLayoutGen) return
+        this.applyActivityLineChart(splitEl, 'activityOriginalRetweetChart', splitOpt, gen)
+        this.applyActivityLineChart(totalEl, 'activityTotalChart', totalOpt, gen)
+      }, 0, gen)
     },
     async loadAll() {
       const userId = this.id || this.$route.params.id
@@ -450,6 +618,7 @@ export default {
         this.error = '缺少用户 ID。'
         return
       }
+      this.disposeCharts()
       this.loading = true
       this.error = ''
       this.tweetPageNum = 1
@@ -472,7 +641,7 @@ export default {
         this.tweetTotal = 0
       } finally {
         this.loading = false
-        this.$nextTick(() => this.refreshCharts())
+        this.refreshCharts()
       }
     },
     async loadTweets(userId) {

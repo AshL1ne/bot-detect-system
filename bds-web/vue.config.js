@@ -1,9 +1,22 @@
 const { defineConfig } = require('@vue/cli-service')
 
-/** Element Plus 表格/分页等在测量布局时会触发浏览器 ResizeObserver 的一次性告警，不应遮住页面 */
+/** 缩放页面 / Element Plus 表格测量布局时，浏览器可能上报 ResizeObserver 相关告警，多为无害时序问题 */
+function runtimeErrorText(error) {
+  if (!error) return ''
+  if (typeof error === 'string') return error
+  const parts = [
+    error.message,
+    error.stack,
+    error.reason && error.reason.message,
+    error.reason && error.reason.stack,
+    error.error && error.error.message
+  ]
+  return parts.filter(Boolean).join('\n')
+}
+
 function shouldShowRuntimeOverlay(error) {
-  const msg = error && error.message ? String(error.message) : String(error)
-  if (/ResizeObserver loop/i.test(msg)) {
+  const msg = runtimeErrorText(error)
+  if (/ResizeObserver/i.test(msg)) {
     return false
   }
   return true
